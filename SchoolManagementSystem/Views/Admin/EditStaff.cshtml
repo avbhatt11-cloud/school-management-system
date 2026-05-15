@@ -1,0 +1,435 @@
+﻿@model SchoolManagementSystem.Models.Staff
+@{
+    ViewBag.Title = "Edit Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<div class="mt-3 mb-4 mt-2 fw-bold profile">
+
+    <h2 class=" text-green">
+        <i class="far fa-user me-2"></i>
+        Edit Staff
+    </h2>
+</div>
+@* Success Message Display *@
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mx-4" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        <strong>@TempData["Success"]</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@* Error Message Display *@
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show mx-4" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <strong>@TempData["Error"]</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@using (Html.BeginForm("EditStaff", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "needs-validation", id = "editStaffForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.PhotoPath)
+    @Html.HiddenFor(m => m.CreatedAt)
+    @Html.HiddenFor(m => m.IsActive)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+        <!-- Current Photo Display -->
+        @if (!string.IsNullOrEmpty(Model.PhotoPath))
+        {
+            <div class="col-12">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Current Photo:</label>
+                    <div>
+                        <img src="@Url.Content(Model.PhotoPath)" alt="Staff Photo" style="max-width: 150px; max-height: 150px; border: 1px solid #ddd; border-radius: 5px; padding: 5px;" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!-- Username -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Username, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter username", required = "required" })
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- First Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.FirstName, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter first name", required = "required", id = "FirstName" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.LastName, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter last name", required = "required", id = "LastName" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Enter email", required = "required" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Gender, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }, Model.Gender), "Select Gender", new { @class = "form-select", required = "required" })
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Contact No -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ContactNo, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control", placeholder = "Enter 10 digit contact number", maxlength = "10", pattern = "[0-9]{10}", required = "required" })
+                @Html.ValidationMessageFor(m => m.ContactNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Password (Optional in Edit) -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Password, new { @class = "form-label fw-bold" })
+                <span class="text-muted">(Leave blank to keep current)</span>
+                <div class="input-group">
+
+                    @Html.PasswordFor(m => m.Password, new
+                    {
+                        @class = "form-control",
+                        id = "Password",
+                        placeholder = "Leave blank to keep current password (5-8 chars, letters & numbers)",
+                        maxlength = "8",
+                        pattern = "[A-Za-z0-9]{5,8}",
+                        value = ""   // ✅ Force empty
+                    })
+
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                        <i class="bi bi-eye" id="eyeIconPassword"></i>
+                    </button>
+                </div>
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <small class="text-muted">Example: Abc123 or Pass5</small>
+            </div>
+        </div>
+
+        <!-- Confirm Password (Optional in Edit) -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label fw-bold" })
+                <span class="text-muted">(Required if changing password)</span>
+                <div class="input-group">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new
+                    {
+                        @class = "form-control",
+                        id = "ConfirmPassword",
+                        placeholder = "Fill only if changing password"
+                    })
+
+                    <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                        <i class="bi bi-eye" id="eyeIconConfirmPassword"></i>
+                    </button>
+                </div>
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Address -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Address, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 1, placeholder = "Enter address", required = "required" })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Designation -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Designation, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Designation, new { @class = "form-control", placeholder = "Enter designation", required = "required" })
+                @Html.ValidationMessageFor(m => m.Designation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Education, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Education, new { @class = "form-control", placeholder = "Enter education", required = "required" })
+                @Html.ValidationMessageFor(m => m.Education, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Class Assigned -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ClassAssigned, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.DropDownListFor(m => m.ClassAssigned, new SelectList(new[]
+                                                        {
+                    "Nursery", "Junior KG", "Senior KG", "1", "2", "3", "4", "5", "6",
+                    "7", "8", "9", "10", "11 - Science", "11 - Commerce", "11 - Arts",
+                    "12 - Science", "12 - Commerce", "12 - Arts"
+                }, Model.ClassAssigned), "Select Class", new { @class = "form-select", required = "required" })
+                @Html.ValidationMessageFor(m => m.ClassAssigned, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Photo (Optional) -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.Label("Photo", new { @class = "form-label fw-bold" })
+                <input type="file"
+                       name="Photo"
+                       id="photoInput"
+                       class="form-control"
+                       accept=".jpg,.jpeg,.png,.gif,image/jpeg,image/png,image/gif" />
+
+                <small class="text-muted">Optional (Max: 5MB)</small>
+                <div id="fileSizeError" class="text-danger" style="display:none;">
+                    <small>⚠️ File size exceeds 5MB! Please select a smaller image.</small>
+                </div>
+                <div id="fileNameError" class="text-danger" style="display:none;">
+                    <small>⚠️ Filename is too long! </small>
+                </div>
+                <div id="filePreview" style="margin-top: 10px; display:none;">
+                    <img id="previewImage" src="" alt="Preview" style="max-width: 150px; max-height: 150px; border: 1px solid #ddd; border-radius: 5px; padding: 5px;" />
+                    <div><small class="text-muted" id="fileName"></small></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary px-4 me-2" id="submitBtn">
+                <i class="bi me-1"></i>Update
+            </button>
+            <a href="@Url.Action("ManageStaff","Admin")" class="btn btn-secondary px-4">
+                <i class="bi me-1"></i>Cancel
+            </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.7/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#FirstName, #LastName").on("input", function () {
+                this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+            });
+
+        });
+        $(document).ready(function () {
+            let isFileValid = true;
+
+            // Client-side file validation
+            $("#photoInput").on("change", function () {
+
+                const file = this.files[0];
+
+                const maxSize = 5 * 1024 * 1024; // 5MB
+                const maxFilenameLength = 30;
+
+                const allowedExtensions = ["jpg", "jpeg", "png", "gif"];
+
+                if (file) {
+
+                    const fileName = file.name;
+                    const fileSize = file.size;
+
+                    // Get extension
+                    const extension = fileName.split('.').pop().toLowerCase();
+
+                    // ✅ Check Extension
+                    if (!allowedExtensions.includes(extension)) {
+                        alert("⚠️ Only JPG, JPEG, PNG, GIF images are allowed.");
+                        this.value = "";
+                        return;
+                    }
+
+                    // ✅ Check Size
+                    if (fileSize > maxSize) {
+                        alert("⚠️ Image size must be less than 5 MB.");
+                        this.value = "";
+                        return;
+                    }
+
+                    // ✅ Check Filename Length
+                    if (fileName.length > maxFilenameLength) {
+                        alert("⚠️ Filename is too long!.");
+                        this.value = "";
+                        return;
+                    }
+                }
+            });
+
+
+            // Form submission validation
+            $("#editStaffForm").on("submit", function (e) {
+                const fileInput = $("#photoInput")[0];
+                if (fileInput.files.length > 0 && !isFileValid) {
+                    e.preventDefault();
+                    alert("Please fix the file errors before submitting.");
+                    return false;
+                }
+            });
+
+            // Password visibility toggle for Password field
+            $("#togglePassword").on("click", function () {
+                const passwordField = $("#Password");
+                const eyeIcon = $("#eyeIconPassword");
+                const type = passwordField.attr("type") === "password" ? "text" : "password";
+                passwordField.attr("type", type);
+
+                // Toggle eye icon
+                if (type === "text") {
+                    eyeIcon.removeClass("bi-eye").addClass("bi-eye-slash");
+                } else {
+                    eyeIcon.removeClass("bi-eye-slash").addClass("bi-eye");
+                }
+            });
+
+            // Password visibility toggle for Confirm Password field
+            $("#toggleConfirmPassword").on("click", function () {
+                const confirmPasswordField = $("#ConfirmPassword");
+                const eyeIcon = $("#eyeIconConfirmPassword");
+                const type = confirmPasswordField.attr("type") === "password" ? "text" : "password";
+                confirmPasswordField.attr("type", type);
+
+                // Toggle eye icon
+                if (type === "text") {
+                    eyeIcon.removeClass("bi-eye").addClass("bi-eye-slash");
+                } else {
+                    eyeIcon.removeClass("bi-eye-slash").addClass("bi-eye");
+                }
+            });
+
+            // Custom validation for password match
+            $.validator.addMethod("passwordmatch", function (value, element) {
+                var password = $("#Password").val();
+                var confirmPassword = $("#ConfirmPassword").val();
+
+                // If password is empty, ignore validation (keeping existing password)
+                if (password === "" && confirmPassword === "") {
+                    return true;
+                }
+
+                return password === confirmPassword;
+            }, "Password and Confirm Password must match");
+
+            // Apply validation rule
+            $("#ConfirmPassword").rules("add", {
+                passwordmatch: true
+            });
+
+            // Real-time validation on keyup
+            $("#Password, #ConfirmPassword").on("keyup", function () {
+                var password = $("#Password").val();
+                var confirmPassword = $("#ConfirmPassword").val();
+
+                // Only validate if at least one field has value
+                if (password.length > 0 || confirmPassword.length > 0) {
+                    if (password === confirmPassword) {
+                        $("#ConfirmPassword").removeClass("is-invalid").addClass("is-valid");
+                        $("span[data-valmsg-for='ConfirmPassword']").text("");
+                    } else {
+                        $("#ConfirmPassword").removeClass("is-valid").addClass("is-invalid");
+                        $("span[data-valmsg-for='ConfirmPassword']").text("Password and Confirm Password do not match");
+                    }
+                } else {
+                    // Clear validation if both fields are empty
+                    $("#ConfirmPassword").removeClass("is-invalid is-valid");
+                    $("span[data-valmsg-for='ConfirmPassword']").text("");
+                }
+            });
+
+            // Auto-hide success message after 5 seconds
+            setTimeout(function () {
+                $(".alert").fadeOut("slow");
+            }, 5000);
+        });
+    </script>
+}
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .text-danger {
+        font-size: 0.875rem;
+    }
+
+    .is-invalid {
+        border-color: #dc3545 !important;
+    }
+
+    .is-valid {
+        border-color: #28a745 !important;
+    }
+
+    .input-group .btn-outline-secondary {
+        border-color: #ced4da;
+    }
+
+        .input-group .btn-outline-secondary:hover {
+            background-color: #e9ecef;
+            border-color: #ced4da;
+            color: #495057;
+        }
+
+    .alert {
+        margin: 20px 0;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+</style>

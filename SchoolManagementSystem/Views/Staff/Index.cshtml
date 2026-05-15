@@ -1,0 +1,799 @@
+﻿@{
+    ViewBag.Title = "Staff Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string username = ViewBag.Username ?? "Staff";
+    string classAssigned = Session["ClassAssigned"]?.ToString() ?? "Not Assigned";
+}
+
+<style>
+    body {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .dashboard-container {
+        padding: 1rem 0;
+        margin-top: 0;
+    }
+
+    .welcome-section {
+        background: linear-gradient(135deg, #2d5f5d 0%, #1e4644 100%);
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+/*        margin-top: 5px;*/
+        box-shadow: 0 10px 30px rgba(45, 95, 93, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+    .welcome-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .welcome-section h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome-section p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        margin-bottom: 1rem;
+    }
+
+    .class-info-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 1rem;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-card {
+        background: white;
+        padding: 1.75rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        border-left: 5px solid;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            opacity: 0.08;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-card.primary {
+            border-left-color: #2d5f5d;
+        }
+
+            .stat-card.primary::after {
+                background: #2d5f5d;
+            }
+
+        .stat-card.success {
+            border-left-color: #10b981;
+        }
+
+            .stat-card.success::after {
+                background: #10b981;
+            }
+
+        .stat-card.warning {
+            border-left-color: #f59e0b;
+        }
+
+            .stat-card.warning::after {
+                background: #f59e0b;
+            }
+
+        .stat-card.info {
+            border-left-color: #3b82f6;
+        }
+
+            .stat-card.info::after {
+                background: #3b82f6;
+            }
+
+    .stat-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .stat-card.primary .stat-icon {
+        background: rgba(45, 95, 93, 0.15);
+        color: #2d5f5d;
+    }
+
+    .stat-card.success .stat-icon {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+    }
+
+    .stat-card.warning .stat-icon {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+    }
+
+    .stat-card.info .stat-icon {
+        background: rgba(59, 130, 246, 0.15);
+        color: #3b82f6;
+    }
+
+    .stat-value {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: #333;
+        position: relative;
+        z-index: 2;
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 0.95rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .section-title i {
+            color: #2d5f5d;
+        }
+
+    .actions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .action-card {
+        background: white;
+        padding: 1.75rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        text-align: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: #333;
+        border: 2px solid transparent;
+        display: block;
+    }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #2d5f5d;
+            color: #333;
+            text-decoration: none;
+        }
+
+    .action-icon {
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(135deg, #2d5f5d 0%, #1e4644 100%);
+        color: white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 0 auto 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .action-card:hover .action-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .action-title {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .action-desc {
+        font-size: 0.875rem;
+        color: #666;
+    }
+
+    /* Recent Section Container - Fixed Height with Flex Layout */
+    .recent-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        margin-bottom: 0.5rem;
+        height: 520px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .recent-section .section-title {
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+    /* Scroll Containers - WITH SCROLL */
+    .activity-scroll-container,
+    .reminder-scroll-container {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 10px;
+        scroll-behavior: smooth;
+    }
+
+        /* Custom Scrollbar */
+        .activity-scroll-container::-webkit-scrollbar,
+        .reminder-scroll-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .activity-scroll-container::-webkit-scrollbar-track,
+        .reminder-scroll-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+
+        .activity-scroll-container::-webkit-scrollbar-thumb,
+        .reminder-scroll-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #2d5f5d 0%, #1e4644 100%);
+            border-radius: 10px;
+        }
+
+            .activity-scroll-container::-webkit-scrollbar-thumb:hover,
+            .reminder-scroll-container::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(135deg, #ff6b6b, #e05555);
+            }
+
+    /* Recent Activity Styles */
+    .activity-item {
+        padding: 1.25rem;
+        border-left: 4px solid;
+        background: #f9fafb;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+        .activity-item:hover {
+            background: #fff0f0;
+            transform: translateX(5px);
+            border-left-color: #ff6b6b !important;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+        }
+
+            .activity-item:hover .activity-icon {
+                background: #ffe4e4 !important;
+                color: #ff6b6b !important;
+            }
+
+            .activity-item:hover .activity-time {
+                color: #ff6b6b;
+            }
+
+    .activity-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Color Coding for Activities */
+    .activity-success {
+        border-left-color: #10b981;
+    }
+
+        .activity-success .activity-icon {
+            background: #d1fae5;
+            color: #10b981;
+        }
+
+    .activity-info {
+        border-left-color: #3b82f6;
+    }
+
+        .activity-info .activity-icon {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+    .activity-warning {
+        border-left-color: #f59e0b;
+    }
+
+        .activity-warning .activity-icon {
+            background: #fed7aa;
+            color: #f59e0b;
+        }
+
+    .activity-primary {
+        border-left-color: #2d5f5d;
+    }
+
+        .activity-primary .activity-icon {
+            background: rgba(45, 95, 93, 0.15);
+            color: #2d5f5d;
+        }
+
+    .activity-danger {
+        border-left-color: #ef4444;
+    }
+
+        .activity-danger .activity-icon {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+    .activity-content {
+        flex: 1;
+    }
+
+    .activity-time {
+        font-size: 10px;
+        color: #2d5f5d;
+        margin-bottom: 4px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .activity-title {
+        font-weight: 600;
+        color: #333;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    /* Important Reminders Styles */
+    .reminder-alert {
+        border-radius: 10px;
+        border: none;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .reminder-time {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+        opacity: 0.8;
+        text-transform: uppercase;
+    }
+
+    .reminder-message {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+        word-break: break-word; /* ✅ ADD THIS */
+        overflow-wrap: break-word; /* ✅ ADD THIS */
+    }
+
+    .alert {
+        border-radius: 10px;
+        border: none;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Class Overview Section */
+    .class-overview-section {
+        background: white;
+        padding: 1.75rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+        .class-overview-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+    .overview-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .overview-card {
+        background: #f7fafc;
+        padding: 1.75rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+        .overview-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: #2d5f5d;
+        }
+
+    .overview-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+
+    .overview-label {
+        font-size: 1rem;
+        color: #718096;
+        margin: 0;
+        font-weight: 500;
+    }
+
+    .blue-text {
+        color: #2d5f5d;
+    }
+
+    .green-text {
+        color: #48bb78;
+    }
+
+    .card,
+    .stats-card,
+    .quick-action-card {
+        background: #ffffff;
+    }
+
+    .dashboard-bg {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f0 100%);
+        min-height: 100vh;
+    }
+
+    /* Responsive Styles */
+    @@media (max-width: 768px) {
+        .welcome-section {
+            padding: 2rem 1.5rem;
+        }
+
+            .welcome-section h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-section p {
+                font-size: 1rem;
+            }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .actions-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+        }
+
+        .overview-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .recent-section {
+            height: 450px;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .actions-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .dashboard-container {
+            padding: 1rem 0;
+        }
+
+        .recent-section {
+            height: 400px;
+        }
+        
+    }
+</style>
+
+<div class="dashboard-bg">
+    <div class="dashboard-container">
+        <div class="px-4 mb-4 ">
+            <div class="welcome-section">
+                <div class="welcome-content">
+                    <h1><i class="bi bi-emoji-smile"></i> Welcome, @username!</h1>
+                    <p>Here's what's happening with your class today</p>
+                    <div class="class-info-badge">
+                        <i class="bi bi-book me-2"></i>Class Assigned: <strong>@classAssigned</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="section-title">
+                    <i class="bi bi-graph-up"></i>
+                    System Overview
+                </h2>
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div class="stat-value">@ViewBag.TotalStudents</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </div>
+                        <div class="stat-value">@ViewBag.PresentToday</div>
+                        <div class="stat-label">Present Today</div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <div class="stat-value">@ViewBag.PendingLeaveRequests</div>
+                        <div class="stat-label">Pending Leave Requests</div>
+                    </div>
+
+                    <div class="stat-card info">
+                        <div class="stat-icon">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                        </div>
+                        <div class="stat-value">@ViewBag.MaterialsUploaded</div>
+                        <div class="stat-label">Materials Uploaded</div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="mb-4">
+                    <h2 class="section-title">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Quick Actions
+                    </h2>
+                    <div class="actions-grid">
+                        <a href="@Url.Action("ManageStudentsAttendance", "Staff")" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                            <div class="action-title">Mark Attendance</div>
+                        </a>
+
+                        <a href="@Url.Action("ManageTimeTable", "Staff")" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-table"></i>
+                            </div>
+                            <div class="action-title">Time Table</div>
+                        </a>
+
+                        <a href="@Url.Action("PostExamSchedule", "Staff")" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-calendar-event"></i>
+                            </div>
+                            <div class="action-title">Exam Schedule</div>
+                        </a>
+
+                        <a href="@Url.Action("PostResult", "Staff")" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <div class="action-title">Post Results</div>
+                        </a>
+
+                        <a href="@Url.Action("ManageFAQs", "Staff")" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-question-circle"></i>
+                            </div>
+                            <div class="action-title">FAQs</div>
+                        </a>
+
+                        <a href="@Url.Action("ViewNotification", "Staff")" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-bell"></i>
+                            </div>
+                            <div class="action-title">Notification</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Activities & Reminders -->
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="recent-section">
+                            <h2 class="section-title">
+                                <i class="bi bi-clock-history"></i>
+                                Recent Activities
+                            </h2>
+
+                            <div class="activity-scroll-container">
+                                @{
+                                    var activities = ViewBag.RecentActivities as List<SchoolManagementSystem.Models.RecentActivityViewModel>;
+                                    if (activities != null && activities.Count > 0)
+                                    {
+                                        foreach (var activity in activities)
+                                        {
+                                            <div class="activity-item activity-@activity.Type">
+                                                <div class="activity-icon">
+                                                    <i class="bi @activity.Icon"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="activity-time">@FormatTimeAgo(activity.Date)</div>
+                                                    <div class="activity-title">@activity.Message</div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="alert alert-info">
+                                            <i class="bi bi-info-circle me-2"></i>
+                                            No recent activities to display
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="recent-section">
+                            <h2 class="section-title">
+                                <i class="bi bi-bell-fill"></i>
+                                Important Reminders
+                            </h2>
+
+                            <div class="reminder-scroll-container">
+                                @{
+                                    var reminders = ViewBag.ImportantReminders as List<SchoolManagementSystem.Models.RecentActivityViewModel>;
+                                    if (reminders != null && reminders.Count > 0)
+                                    {
+                                        foreach (var reminder in reminders)
+                                        {
+                                            var alertClass = reminder.Type == "info" ? "alert-info" :
+                                                           reminder.Type == "secondary" ? "alert-secondary" : "alert-primary";
+
+                                            <div class="alert @alertClass reminder-alert">
+                                                <div class="d-flex gap-2 align-items-start">
+                                                    <i class="bi @reminder.Icon" style="font-size: 20px;"></i>
+                                                    <div class="flex-grow-1">
+                                                        <div class="reminder-time">@FormatTimeAgo(reminder.Date)</div>
+                                                        <div class="reminder-message">@reminder.Message</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="alert alert-success">
+                                            <i class="bi bi-check-circle-fill me-2"></i>
+                                            <strong>All Clear:</strong> No pending reminders at the moment
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @functions {
+                    string FormatTimeAgo(DateTime dateTime)
+                    {
+                        var timeSpan = DateTime.Now - dateTime;
+
+                        if (timeSpan.TotalMinutes < 1)
+                            return "Just now";
+                        if (timeSpan.TotalMinutes < 60)
+                            return $"{(int)timeSpan.TotalMinutes} minute{((int)timeSpan.TotalMinutes > 1 ? "s" : "")} ago";
+                        if (timeSpan.TotalHours < 24)
+                        {
+                            if (timeSpan.TotalHours < 2)
+                                return "1 hour ago";
+                            return $"{(int)timeSpan.TotalHours} hours ago";
+                        }
+                        if (timeSpan.TotalDays < 2)
+                            return "Yesterday";
+                        if (timeSpan.TotalDays < 7)
+                            return $"{(int)timeSpan.TotalDays} days ago";
+
+                        return dateTime.ToString("MMM dd, yyyy");
+                    }
+                }
+
+                <!-- Class Overview -->
+                <div class="class-overview-section">
+                    <h3>  <i class="bi bi-easel" style="color:#2d5f5d;"></i> Class Overview</h3>
+                    <div class="overview-cards">
+                        <div class="overview-card">
+                            <h2 class="overview-number blue-text">@ViewBag.AverageAttendance%</h2>
+                            <p class="overview-label">Average Attendance</p>
+                        </div>
+                        <div class="overview-card">
+                            <h2 class="overview-number blue-text">@ViewBag.ActiveStudents</h2>
+                            <p class="overview-label">Active Students</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            console.log('Staff Dashboard Loaded Successfully');
+        });
+    </script>
+}

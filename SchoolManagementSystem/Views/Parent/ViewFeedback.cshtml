@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Feedback>
+
+@{
+    ViewBag.Title = "View Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Parent Layout
+}
+
+<div class="mb-4 mt-3 text-primary fw-bold profile">
+    <h2 style="color: #2d5f5d;"><i class="bi bi-reply-all-fill"></i> Your Feedback & Replies</h2>
+    @if (TempData["FeedbackSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show mx-4" role="alert">
+            <i class="bi bi-check-circle-fill"></i>
+            @TempData["FeedbackSuccess"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <table class="table table-bordered table-hover" style="table-layout: fixed; word-wrap: break-word;">
+        <thead class="table-dark">
+            <tr>
+                <th style="width:5%">No.</th>
+                <th style="width:35%">Your Feedback</th>
+                <th style="width:35%">Reply</th>
+                <th style="width:25%">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int i = 1;
+                foreach (var f in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@f.Message</td>
+                        <td>
+                            @(string.IsNullOrEmpty(f.Reply)
+                                  ? "⏳ Pending"
+                                  : f.Reply)
+                        </td>
+                        <td>@f.CreatedAt.ToString("dd-MMM-yyyy hh:mm tt")</td>
+                    </tr>
+                    i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center text-muted">No feedback submitted yet</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+    .table td, .table th {
+        word-break: break-word;
+        white-space: normal;
+        vertical-align: middle;
+    }
+    
+</style>

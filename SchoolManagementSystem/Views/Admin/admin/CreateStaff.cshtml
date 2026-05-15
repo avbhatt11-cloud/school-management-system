@@ -1,0 +1,140 @@
+﻿@model SchoolManagementSystem.Models.Staff
+@{
+    ViewBag.Title = "Add Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-primary fw-bold">Add Staff</h2>
+
+@using (Html.BeginForm("CreateStaff", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "needs-validation", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="row mt-4 g-4 border border-1 border-dark  rounded-2 p-2 shadow-sm bg-white">
+
+    <!-- Username -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Username, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter username" })
+            @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- First Name -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.FirstName, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter first name" })
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.LastName, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter last name" })
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Enter email" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Gender, new { @class = "form-label fw-bold" })
+            @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-select" })
+            @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- Contact No -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.ContactNo, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control", placeholder = "Enter contact number" })
+            @Html.ValidationMessageFor(m => m.ContactNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- Password -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Password, new { @class = "form-label fw-bold" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="col-md-4 col-sm-6">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label fw-bold" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- Address -->
+    <div class="col-md-4 col-sm-12">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Address, new { @class = "form-label fw-bold" })
+            @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 1, placeholder = "Enter address" })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Designation, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.Designation, new { @class = "form-control", placeholder = "Enter designation" })
+        </div>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.Education, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.Education, new { @class = "form-control", placeholder = "Enter education" })
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.ClassAssigned, new { @class = "form-label fw-bold" })
+            @Html.DropDownListFor(m => m.ClassAssigned, new SelectList(new[]
+            {
+                "Nursery", "Junior KG", "Senior KG", "1", "2", "3", "4", "5", "6",
+                "7", "8", "9", "10", "11 - Science", "11 - Commerce", "11 - Arts",
+                "12 - Science", "12 - Commerce", "12 - Arts"
+            }), "Select Class", new { @class = "form-select" })
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="mb-1">
+            @Html.Label("Photo", new { @class = "form-label fw-bold" })
+            <input type="file" name="Photo" class="form-control" />
+        </div>
+    </div>
+    <!-- Buttons -->
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success px-4 me-2">Save</button>
+        <a href="@Url.Action("ManageStaff","Admin")" class="btn btn-secondary px-4">Cancel</a>
+    </div>
+</div>
+
+   
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.7/jquery.validate.unobtrusive.min.js"></script>
+}

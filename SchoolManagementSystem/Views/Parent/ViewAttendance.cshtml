@@ -1,0 +1,217 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Attendance>
+
+@{
+    ViewBag.Title = "My Child's Attendance";
+}
+
+<div class="mb-4 mt-3 fw-bold profile">
+    <h2 style="color: #2d5f5d;">
+        <i class="fas fa-clipboard-list" style="color: #2d5f5d;"></i> My Child's Attendance
+    </h2>
+</div>
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <!-- Search Bar Section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get"
+                  action="@Url.Action("ViewAttendance", "Parent")"
+                  onsubmit="return validateDates();">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold">
+                            From Date <span class="text-danger">*</span>
+                        </label>
+                        <input type="date"
+                               name="fromDate"
+                               id="FromDate"
+                               class="form-control"
+                               value="@ViewBag.FromDate"
+                               max="@DateTime.Today.ToString("yyyy-MM-dd")"
+                               required />
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold">
+                            To Date <span class="text-danger">*</span>
+                        </label>
+                        <input type="date"
+                               name="toDate"
+                               id="ToDate"
+                               class="form-control"
+                               value="@ViewBag.ToDate"
+                               max="@DateTime.Today.ToString("yyyy-MM-dd")"
+                               required />
+                    </div>
+                    <div class="col-md-4">
+                        <label>&nbsp;</label>
+                        <div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <a href="@Url.Action("ViewAttendance", "Parent")" class="btn btn-secondary">
+                                <i class="fa fa-refresh"></i> Reset
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <i class="fa fa-exclamation-triangle"></i> @ViewBag.Error
+        </div>
+    }
+
+
+    <!-- Results Summary -->
+    @if (ViewBag.TotalRecords != null)
+    {
+        <div class="alert alert-info">
+            <strong>Total Records Found: @ViewBag.TotalRecords</strong>
+        </div>
+    }
+
+    <!-- Attendance Table -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead style="background-color: #333; color: white;" class="table-dark">
+                <tr>
+                    <th>No.</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    int i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.AttendanceDate.ToString("yyyy-MM-dd")</td>
+                            <td>
+                                @{
+                                    var status = (item.Status ?? "").Trim();
+                                }
+
+                                @if (status.Equals("Present", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <span style="background-color: #28a745; color: white; padding: 8px 20px; border-radius: 5px; display: inline-block; font-weight: bold;">
+                                        Present
+                                    </span>
+                                }
+                                else if (status.Equals("Absent", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <span style="background-color: #dc3545; color: white; padding: 8px 20px; border-radius: 5px; display: inline-block; font-weight: bold;">
+                                        Absent
+                                    </span>
+                                }
+                                else if (status.Equals("Late", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <span style="background-color: #ffc107; color: black; padding: 8px 20px; border-radius: 5px; display: inline-block; font-weight: bold;">
+                                        Late
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span style="background-color: #6c757d; color: white; padding: 8px 20px; border-radius: 5px; display: inline-block; font-weight: bold;">
+                                        @status
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center" style="padding: 40px; font-size: 18px; color: #666;">
+                            <i class="fa fa-info-circle"></i> No attendance records found for the selected date range.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+</style>
+
+<script>
+    function validateDates() {
+        const fromDate = document.querySelector("input[name='fromDate']").value;
+        const toDate = document.querySelector("input[name='toDate']").value;
+
+        // 1️⃣ Only one date filled
+        if ((fromDate && !toDate) || (!fromDate && toDate)) {
+            alert("Please select both From Date and To Date.");
+            return false;
+        }
+
+        // 2️⃣ From Date > To Date
+        if (fromDate && toDate && fromDate > toDate) {
+            alert("From Date cannot be greater than To Date.");
+            return false;
+        }
+
+        // 3️⃣ Future date check
+        const today = new Date().toISOString().split("T")[0];
+
+        if ((fromDate && fromDate > today) || (toDate && toDate > today)) {
+            alert("Future dates are not allowed.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+<script>
+    function validateDates() {
+        const fromDate = document.querySelector("input[name='fromDate']").value;
+        const toDate = document.querySelector("input[name='toDate']").value;
+
+        // 1️⃣ Only one date filled
+        if ((fromDate && !toDate) || (!fromDate && toDate)) {
+            alert("Please select both From Date and To Date.");
+            return false;
+        }
+
+        // 2️⃣ From Date > To Date
+        if (fromDate && toDate && fromDate > toDate) {
+            alert("From Date cannot be greater than To Date.");
+            return false;
+        }
+
+        // 3️⃣ Future date check
+        const today = new Date().toISOString().split("T")[0];
+
+        if ((fromDate && fromDate > today) || (toDate && toDate > today)) {
+            alert("Future dates are not allowed.");
+            return false;
+        }
+
+        return true;
+    }
+</script>

@@ -1,0 +1,101 @@
+﻿@model SchoolManagementSystem.Models.Student
+@{
+    ViewBag.Title = "Add Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-primary fw-bold">Add Student</h2>
+
+@using (Html.BeginForm("CreateStudent", "Staff", FormMethod.Post, new { enctype = "multipart/form-data", @class = "needs-validation", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-2 shadow-sm bg-white">
+
+        <!-- First Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.FirstName, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter first name" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Middle Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.MiddleName, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control", placeholder = "Enter middle name" })
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.LastName, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter last name" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Gender, new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-select" })
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Class Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ClassName, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.ClassName, new { @class = "form-control", placeholder = "Enter class" })
+                @Html.ValidationMessageFor(m => m.ClassName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Parent First Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ParentFirstName, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.ParentFirstName, new { @class = "form-control", placeholder = "Enter parent's first name" })
+                @Html.ValidationMessageFor(m => m.ParentFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Parent Last Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ParentLastName, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.ParentLastName, new { @class = "form-control", placeholder = "Enter parent's last name" })
+                @Html.ValidationMessageFor(m => m.ParentLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ContactNumber, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", placeholder = "Enter contact number" })
+                @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Address -->
+        <div class="col-md-8 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Address, new { @class = "form-label fw-bold" })
+                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 2, placeholder = "Enter address" })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success px-4 me-2">Save</button>
+            <a href="@Url.Action("ManageStudents","Staff")" class="btn btn-secondary px-4">Cancel</a>
+        </div>
+    </div>
+}

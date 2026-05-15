@@ -1,0 +1,260 @@
+﻿    @model SchoolManagementSystem.Models.LoginViewModel
+    @{
+        ViewBag.Title = "Login";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #f5f7fb;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* ===== LEFT SIDE - TEAL GREEN ===== */
+        .login-illustration {
+            width: 40%;
+            background-color: #2d5f5d;
+            background-image: linear-gradient(135deg, #2d5f5d 0%, #1e4644 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .illustration-content {
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Logo image wrapper */
+        .logo-wrapper {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+        }
+
+            .logo-wrapper img {
+                width: 200px;
+                height: 200px;
+                object-fit: contain;
+            }
+
+        .illustration-content h3 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .illustration-content p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Right Side */
+        .login-form-container {
+            width: 60%;
+            padding: 50px 40px;
+        }
+
+        .login-header h1 {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+            .form-group label {
+                font-weight: 600;
+            }
+
+        .input-box {
+            position: relative;
+        }
+
+        .form-control {
+            height: 48px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            background: #f8f9fa;
+            padding-left: 40px;
+            padding-right: 45px;
+        }
+
+            .form-control:focus {
+                border-color: #2d5f5d !important;
+                background: white;
+                box-shadow: 0 0 0 0.2rem rgba(45, 95, 93, 0.25) !important;
+            }
+
+        .left-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .right-icon {
+            position: absolute;
+            right: 250px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* ===== LOGIN BUTTON - CORAL RED ===== */
+        .btn-login {
+            width: 100%;
+            background-color :#2d5f5d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .field-validation-error {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        @@media (max-width: 768px) {
+            .login-card {
+                flex-direction: column;
+            }
+
+            .login-illustration, .login-form-container {
+                width: 100%;
+            }
+
+            .login-illustration {
+                padding: 2rem;
+            }
+
+            .login-form-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+
+    <div class="login-container">
+        <div class="login-card">
+
+            <!-- LEFT - Teal with Logo -->
+            <div class="login-illustration">
+                <div class="illustration-content">
+                    <div class="logo-wrapper">
+                        <img src="~/Content/images/lo.png" alt="Smart Eduverse Logo" />
+                    </div>
+                    <h5>Secure Login Portal</h5>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="login-form-container">
+                <div class="login-header mb-4">
+                    <h1>Welcome Back</h1>
+                    <p>Please login to your account</p>
+                </div>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i>
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    </div>
+                }
+
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Username)
+                        <div class="input-box">
+                            <i class="bi bi-person left-icon"></i>
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter username" })
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        <div class="input-box">
+                            <i class="bi bi-lock left-icon"></i>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "password", placeholder = "Enter password" })
+                            <i class="bi bi-eye-slash right-icon" id="togglePassword"></i>
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <button type="submit" class="btn-login mt-3">
+                        <i class="bi bi-box-arrow-in-right"></i> Login
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var toggle = document.getElementById("togglePassword");
+                var password = document.getElementById("password");
+                toggle.addEventListener("click", function () {
+                    if (password.type === "password") {
+                        password.type = "text";
+                        this.classList.remove("bi-eye-slash");
+                        this.classList.add("bi-eye");
+                    } else {
+                        password.type = "password";
+                        this.classList.remove("bi-eye");
+                        this.classList.add("bi-eye-slash");
+                    }
+                });
+            });
+        </script>
+    }

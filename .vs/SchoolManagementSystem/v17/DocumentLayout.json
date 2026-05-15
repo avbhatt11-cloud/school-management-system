@@ -1,0 +1,1142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|c:\\school system\\sms\\schoolmanagementsystem\\schoolmanagementsystem\\views\\staff\\manageprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\manageprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\home\\askfaq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\home\\askfaq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\askfaqs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\askfaqs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\controllers\\parentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\controllers\\parentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\recentactivityviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\recentactivityviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\uploadmaterial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\uploadmaterial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\home\\ourstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\home\\ourstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\createfee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\createfee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\services\\cashfreeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\services\\cashfreeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\fee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\fee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\managenotification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\managenotification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\services\\receiptgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\services\\receiptgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\monthlyfeedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\monthlyfeedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\feereportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\feereportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\feepaymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\feepaymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\feepayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\feepayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\filters\\roleauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\filters\\roleauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\managefaqs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\managefaqs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewresult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewresult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewexamschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewexamschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewmaterial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewmaterial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewtimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewtimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewattendance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewattendance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\managestudentsattendance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\managestudentsattendance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\managefees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\managefees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\editparent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\editparent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\managefeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\managefeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\viewfeestatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\viewfeestatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\parent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\parent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\editstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\editstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\createstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\createstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\deletestaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\deletestaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\managestaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\managestaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\gallery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\gallery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\examschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\examschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\allfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\allfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\getnotification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\getnotification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\viewleavereport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\viewleavereport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\viewnotification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\viewnotification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\managetimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\managetimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\edittimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\edittimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\manageprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\manageprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\admin\\managegallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\admin\\managegallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\postexamschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\postexamschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\postresult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\postresult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\payfees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\payfees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\answerfaq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\answerfaq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\parent\\viewgallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\parent\\viewgallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\detailsstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\detailsstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\editstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\editstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\schoolmanagementsystem\\views\\staff\\deletetimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B343473-653D-4EC4-895C-109543BFA406}|SchoolManagementSystem\\SchoolManagementSystem.csproj|solutionrelative:schoolmanagementsystem\\views\\staff\\deletetimetable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Fee.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Fee.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Fee.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Fee.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Fee.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:38.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Admin.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Admin.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:32.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\Index.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\Index.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\Index.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\Index.cshtml",
+              "ViewState": "AgIAAMICAAAAAAAAAAAAAB8DAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T15:07:38.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AskFAQ.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\AskFAQ.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Home\\AskFAQ.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\AskFAQ.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Home\\AskFAQ.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAGsAAADdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T13:14:50.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AskFAQs.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\AskFAQs.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\AskFAQs.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\AskFAQs.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\AskFAQs.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:24:55.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Web.config",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Web.config",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Web.config",
+              "RelativeToolTip": "SchoolManagementSystem\\Web.config",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACoAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-02-20T11:46:02.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAEwCkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T17:02:51.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ParentController.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\ParentController.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Controllers\\ParentController.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\ParentController.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Controllers\\ParentController.cs",
+              "ViewState": "AgIAAAcCAAAAAAAAAAAmwAsBAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T08:10:09.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageProfile.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageProfile.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\ManageProfile.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageProfile.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\ManageProfile.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T12:05:27.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FAQ.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FAQ.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\FAQ.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FAQ.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\FAQ.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T15:29:04.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StaffController.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\StaffController.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Controllers\\StaffController.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\StaffController.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Controllers\\StaffController.cs",
+              "ViewState": "AgIAAEMIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T06:06:43.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T09:27:12.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateFee.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\CreateFee.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\CreateFee.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\CreateFee.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\CreateFee.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-05T13:39:30.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RecentActivityViewModel.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\RecentActivityViewModel.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\RecentActivityViewModel.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\RecentActivityViewModel.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\RecentActivityViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:56.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CashfreeService.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Services\\CashfreeService.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Services\\CashfreeService.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Services\\CashfreeService.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Services\\CashfreeService.cs",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAiwPgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T12:06:59.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OurStaff.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\OurStaff.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Home\\OurStaff.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\OurStaff.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Home\\OurStaff.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAJ8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T13:10:43.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UploadMaterial.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\UploadMaterial.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\UploadMaterial.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\UploadMaterial.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\UploadMaterial.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAcwHgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T05:43:31.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ManageNotification.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageNotification.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\ManageNotification.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageNotification.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\ManageNotification.cshtml",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAgwGgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T06:21:31.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FeePaymentViewModel.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FeePaymentViewModel.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\FeePaymentViewModel.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FeePaymentViewModel.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\FeePaymentViewModel.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwDoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:46.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ReceiptGenerator.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Services\\ReceiptGenerator.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Services\\ReceiptGenerator.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Services\\ReceiptGenerator.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Services\\ReceiptGenerator.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAYwGAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T12:07:16.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FeePayment.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FeePayment.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\FeePayment.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FeePayment.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\FeePayment.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:45.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FeeReportViewModel.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FeeReportViewModel.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\FeeReportViewModel.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\FeeReportViewModel.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\FeeReportViewModel.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T04:40:23.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MonthlyFeeData.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\MonthlyFeeData.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\MonthlyFeeData.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\MonthlyFeeData.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\MonthlyFeeData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:52.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RoleAuthorizeAttribute.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Filters\\RoleAuthorizeAttribute.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Filters\\RoleAuthorizeAttribute.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Filters\\RoleAuthorizeAttribute.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Filters\\RoleAuthorizeAttribute.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T11:59:33.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ManageFAQs.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageFAQs.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\ManageFAQs.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageFAQs.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\ManageFAQs.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:14:28.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ViewResult.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewResult.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewResult.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewResult.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewResult.cshtml",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAAACYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:22:53.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ViewExamSchedule.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewExamSchedule.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewExamSchedule.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewExamSchedule.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewExamSchedule.cshtml",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:21:40.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ViewMaterial.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewMaterial.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewMaterial.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewMaterial.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewMaterial.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:21:22.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ViewTimeTable.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewTimeTable.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewTimeTable.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewTimeTable.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewTimeTable.cshtml",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:20:52.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ViewAttendance.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewAttendance.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewAttendance.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewAttendance.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewAttendance.cshtml",
+              "ViewState": "AgIAAEMAAAAAAAAAAADwv1EAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:20:26.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ManageStudentsAttendance.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageStudentsAttendance.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\ManageStudentsAttendance.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageStudentsAttendance.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\ManageStudentsAttendance.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:09:16.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ManageFees.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageFees.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\ManageFees.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageFees.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\ManageFees.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAF0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T06:20:39.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "EditParent.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\EditParent.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\EditParent.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\EditParent.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\EditParent.cshtml",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAgwPkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T12:56:25.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ManageFeedback.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageFeedback.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\ManageFeedback.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageFeedback.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\ManageFeedback.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T06:22:34.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAuwPsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T13:19:16.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ViewFeeStatus.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ViewFeeStatus.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\ViewFeeStatus.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ViewFeeStatus.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\ViewFeeStatus.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-25T04:24:14.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T13:09:11.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Parent.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Parent.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Parent.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Parent.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Parent.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowEYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T12:46:49.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Staff.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Staff.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Staff.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Staff.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Staff.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAiwFMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T12:05:43.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "EditStaff.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\EditStaff.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\EditStaff.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\EditStaff.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\EditStaff.cshtml",
+              "ViewState": "AgIAAKEBAAAAAAAAAAAwwLMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T17:01:22.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CreateStaff.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\CreateStaff.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\CreateStaff.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\CreateStaff.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\CreateStaff.cshtml",
+              "ViewState": "AgIAAEYBAAAAAAAAAAAwwFgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T12:10:30.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DeleteStaff.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\DeleteStaff.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\DeleteStaff.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\DeleteStaff.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\DeleteStaff.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-24T12:14:16.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ManageStaff.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageStaff.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\ManageStaff.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageStaff.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\ManageStaff.cshtml",
+              "ViewState": "AgIAAM4AAAAAAAAAAAAwwOAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T16:48:00.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Results.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Results.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Results.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Results.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Results.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T12:47:23.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Attendance.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Attendance.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Attendance.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Attendance.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Attendance.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAmwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T15:06:30.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Student.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Student.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:58.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Notification.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Notification.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:54.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:50.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Gallery.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Gallery.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\Gallery.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\Gallery.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\Gallery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:48.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "ExamSchedule.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\ExamSchedule.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\ExamSchedule.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\ExamSchedule.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\ExamSchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:36.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SchoolManagementSystem\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T16:02:34.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T13:15:06.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\Index.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\Index.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\Index.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\Index.cshtml",
+              "ViewState": "AgIAAOgCAAAAAAAAAAAUwPICAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T12:52:58.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "AllFeedback.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\AllFeedback.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\AllFeedback.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\AllFeedback.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\AllFeedback.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAUwFkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:24:37.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ViewFeedback.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewFeedback.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewFeedback.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewFeedback.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewFeedback.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:23:33.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "GetNotification.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\GetNotification.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\GetNotification.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\GetNotification.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\GetNotification.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAD4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:23:09.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "ViewLeaveReport.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ViewLeaveReport.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\ViewLeaveReport.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ViewLeaveReport.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\ViewLeaveReport.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T05:58:16.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "ViewNotification.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ViewNotification.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\ViewNotification.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ViewNotification.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\ViewNotification.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T05:53:31.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "ManageTimeTable.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageTimeTable.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\ManageTimeTable.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\ManageTimeTable.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\ManageTimeTable.cshtml",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAAAJYAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T11:54:24.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "edittimetable.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\edittimetable.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\edittimetable.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\edittimetable.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\edittimetable.cshtml",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAHcAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T12:56:30.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "ManageProfile.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ManageProfile.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ManageProfile.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ManageProfile.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ManageProfile.cshtml",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAAAJUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:18:28.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "ManageGallery.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageGallery.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Admin\\ManageGallery.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Admin\\ManageGallery.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Admin\\ManageGallery.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T06:19:01.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "PostResult.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\PostResult.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\PostResult.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\PostResult.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\PostResult.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAF0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T05:49:37.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "PostExamSchedule.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\PostExamSchedule.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\PostExamSchedule.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\PostExamSchedule.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\PostExamSchedule.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T05:45:53.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "PayFees.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\PayFees.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\PayFees.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\PayFees.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\PayFees.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAADwv0sAAACXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:19:07.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "ViewGallery.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewGallery.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Parent\\ViewGallery.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Parent\\ViewGallery.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Parent\\ViewGallery.cshtml",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAIwIAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T05:03:35.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "AnswerFAQ.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\AnswerFAQ.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\AnswerFAQ.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\AnswerFAQ.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\AnswerFAQ.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:13:15.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "DetailsStudent.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\DetailsStudent.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\DetailsStudent.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\DetailsStudent.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\DetailsStudent.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T15:23:27.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "EditStudent.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\EditStudent.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\EditStudent.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\EditStudent.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\EditStudent.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T13:08:36.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "deletetimetable.cshtml",
+              "DocumentMoniker": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\deletetimetable.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagementSystem\\Views\\Staff\\deletetimetable.cshtml",
+              "ToolTip": "C:\\SCHOOL SYSTEM\\SMS\\SchoolManagementSystem\\SchoolManagementSystem\\Views\\Staff\\deletetimetable.cshtml",
+              "RelativeToolTip": "SchoolManagementSystem\\Views\\Staff\\deletetimetable.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-19T12:54:46.787Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

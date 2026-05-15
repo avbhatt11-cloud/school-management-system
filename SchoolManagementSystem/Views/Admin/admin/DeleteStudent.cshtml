@@ -1,0 +1,17 @@
+﻿@model SchoolManagementSystem.Models.Student
+@{
+    ViewBag.Title = "Delete Student";
+}
+<div class="container mt-4">
+    <h2 class="text-danger">Delete Student</h2>
+    <hr />
+    <div class="alert alert-warning">
+        Are you sure you want to delete <strong>@Model.FirstName @Model.LastName</strong>?
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Delete</button>
+        @Html.ActionLink("Cancel", "ManageStudents", null, new { @class = "btn btn-secondary ml-2" })
+    }
+</div>

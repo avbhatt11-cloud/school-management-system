@@ -1,0 +1,16 @@
+﻿@model SchoolManagementSystem.Models.Gallery
+@{
+    ViewBag.Title = "Photo Details";
+}
+
+<h2>Photo Details</h2>
+
+<div>
+    <h4>@Model.PhotoName</h4>
+    <p><img src="@Url.Content(Model.PhotoPath)" alt="@Model.PhotoName" width="300" /></p>
+    <p><strong>Uploaded on:</strong> @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "ManageGallery", null, new { @class = "btn btn-secondary" })
+</p>

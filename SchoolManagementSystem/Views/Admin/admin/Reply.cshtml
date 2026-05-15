@@ -1,0 +1,31 @@
+﻿@model SchoolManagementSystem.Models.Feedback
+
+@{
+    ViewBag.Title = "Reply Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Admin Layout
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">✍️ Reply to Feedback</h2>
+
+    <div class="card shadow-sm p-4">
+        @using (Html.BeginForm("Reply", "Admin", FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken() <!-- 🔴 जरूरी लाइन -->
+
+            @Html.HiddenFor(m => m.FeedbackId)
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Feedback:</label>
+                <p class="form-control-plaintext">@Model.Message</p>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Reply:</label>
+                <textarea name="Reply" class="form-control" rows="4">@Model.Reply</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit Reply</button>
+        }
+    </div>
+</div>

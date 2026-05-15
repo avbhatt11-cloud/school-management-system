@@ -1,0 +1,67 @@
+﻿@model SchoolManagementSystem.Models.Parent
+
+@{
+    ViewBag.Title = "Edit Parent";
+}
+
+<h2>Edit Parent</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ParentFirstName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ParentFirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ParentFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ParentLastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ParentLastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ParentLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Gender, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(
+                    m => m.Gender,
+                    new SelectList(new[] { "Male", "Female", "Other" }),
+                    "Select Gender",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ContactNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "ManageParents", null, new { @class = "btn btn-secondary ms-2" })
+            </div>
+        </div>
+    </div>
+}

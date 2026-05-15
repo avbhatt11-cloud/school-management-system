@@ -1,0 +1,56 @@
+﻿@model SchoolManagementSystem.Models.Student
+@{
+    ViewBag.Title = "Edit Student";
+}
+<div class="container mt-4">
+    <h2 class="text-primary">Edit Student</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MiddleName)
+                    @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Gender)
+                    @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ClassName)
+                    @Html.TextBoxFor(m => m.ClassName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ParentFirstName)
+                    @Html.TextBoxFor(m => m.ParentFirstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ParentLastName)
+                    @Html.TextBoxFor(m => m.ParentLastName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ContactNumber)
+                    @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Address)
+                    @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 3 })
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+        @Html.ActionLink("Back to List", "ManageStudents", null, new { @class = "btn btn-secondary ml-2" })
+    }
+</div>

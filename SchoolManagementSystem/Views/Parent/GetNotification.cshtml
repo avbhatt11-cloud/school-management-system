@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Notification>
+
+@{
+    ViewBag.Title = "Get Notification";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Parent Layout
+}
+
+
+
+<div class="mb-4 mt-3 text-primary fw-bold gn">
+    <h2 style="color: #2d5f5d;"> <i class="bi bi-bell-fill"></i> Notifications</h2>
+</div>
+
+<div class="card  mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white gn-wrapper ">
+    <table class="table table-bordered table-hover" style="table-layout: fixed; word-wrap: break-word;">
+        <thead class="table-dark">
+            <tr>
+                <th style="width:5%">No.</th>
+                <th style="width:70%">Message</th>
+                <th style="width:25%">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int i = 1;
+                foreach (var notification in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@notification.Message</td>
+                        <td>@notification.CreatedDate.ToString("dd-MMM-yyyy hh:mm tt")</td>
+                    </tr>
+                    i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center text-muted">No notifications available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<style>
+    .gn-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .gn {
+        margin: 24px;
+        /*        padding: 15px;  inside space */
+    }
+    .table td, .table th {
+        word-break: break-word;
+        white-space: normal;
+        vertical-align: middle;
+    }
+</style>

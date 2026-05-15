@@ -1,0 +1,139 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Feedback>
+@{
+    ViewBag.Title = "Manage Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<div class="d-flex justify-content-between align-items-center mb-4 profile">
+    <h2 class="mt-2 mb-2 text-green">
+        <i class="bi bi-chat-dots me-2 text-green"></i>
+        Manage Feedback
+    </h2>
+
+</div>
+
+<!-- ✅ Success Message -->
+@if (TempData.ContainsKey("Success"))
+{
+    <div class="alert alert-success alert-dismissible fade show profile" role="alert" id="successAlert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>✅ Success!</strong> @TempData["Success"]
+    </div>
+}
+
+<!-- ✅ Error Message -->
+@if (TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger alert-dismissible fade show profile" role="alert" id="errorAlert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>❌ Error!</strong> @TempData["Error"]
+    </div>
+}
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+    <table class="table table-bordered table-hover text-center" style="table-layout: fixed; word-wrap: break-word;">
+        <thead style="background-color:#2f294c; color:white;">
+            <tr>
+                <th style="width:5%">No.</th>
+                <th style="width:15%">Parent</th>
+                <th style="width:30%">Feedback</th>
+                <th style="width:30%">Reply</th>
+                <th style="width:20%">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int i = 1;
+                foreach (var f in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td style="word-break: break-word; white-space: normal;">@f.Parent.ParentFirstName @f.Parent.ParentLastName</td>
+                        <td style="word-break: break-word; white-space: normal; text-align: left;">@f.Message</td>
+                        <td style="word-break: break-word; white-space: normal; text-align: left;">
+                            @(string.IsNullOrEmpty(f.Reply) ? "⏳ Pending" : f.Reply)
+                        </td>
+                        <td>
+                            @Html.ActionLink(" Reply", "Reply", new { id = f.FeedbackId },
+                                                    new { @class = "btn btn-sm btn-success me-2" })
+
+                            @using (Html.BeginForm("DeleteFeedback", "Admin", new { id = f.FeedbackId },
+                                   FormMethod.Post, new { @style = "display:inline;" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure you want to delete feedback from @f.Parent.ParentFirstName @f.Parent.ParentLastName?')">
+                                    Delete
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No feedback available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .profile h2 i {
+        color: #198754; /* green */
+    }
+
+    .table td, .table th {
+        word-break: break-word;
+        white-space: normal;
+        vertical-align: middle;
+    }
+</style>
+
+<script>
+    function confirmDelete(feedbackId, parentName) {
+        var confirmed = confirm('Are you sure you want to delete feedback from ' + parentName + '?');
+
+        if (confirmed) {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '@Url.Action("DeleteFeedback", "Admin")' + '?id=' + feedbackId;
+
+            var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+            var tokenInput = document.createElement('input');
+            tokenInput.type = 'hidden';
+            tokenInput.name = '__RequestVerificationToken';
+            tokenInput.value = token;
+            form.appendChild(tokenInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+</script>

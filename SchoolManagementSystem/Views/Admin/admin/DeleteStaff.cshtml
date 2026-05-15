@@ -1,0 +1,17 @@
+﻿@model SchoolManagementSystem.Models.Staff
+@{
+    ViewBag.Title = "Delete Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Staff</h2>
+
+<p>Are you sure you want to delete <strong>@Model.FirstName @Model.LastName</strong>?</p>
+
+@using (Html.BeginForm("DeleteStaff", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a class="btn btn-secondary" href="@Url.Action("ManageStaff","Admin")">Cancel</a>
+}

@@ -1,0 +1,224 @@
+﻿@{
+    ViewBag.Title = "Login Selection";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+
+    .selection-container {
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1rem;
+    }
+
+    .selection-wrapper {
+        max-width: 900px;
+        width: 100%;
+    }
+
+    .selection-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: white;
+    }
+
+    .selection-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        animation: fadeInDown 0.6s ease;
+    }
+
+    .selection-header p {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        animation: fadeInUp 0.6s ease;
+    }
+
+    .login-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        animation: fadeInUp 0.8s ease;
+    }
+
+    .login-card {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .login-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--card-color-1), var(--card-color-2));
+    }
+
+    .login-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .login-card.staff {
+        --card-color-1: #0f9b0f;
+        --card-color-2: #16a085;
+    }
+
+    .login-card.parent {
+        --card-color-1: #667eea;
+        --card-color-2: #764ba2;
+    }
+
+    .card-icon {
+        font-size: 5rem;
+        margin-bottom: 1.5rem;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .staff .card-icon {
+        color: #0f9b0f;
+    }
+
+    .parent .card-icon {
+        color: #667eea;
+    }
+
+    .card-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .card-description {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    .btn-login-select {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        color: white;
+    }
+
+    .staff .btn-login-select {
+        background: linear-gradient(135deg, #0f9b0f 0%, #16a085 100%);
+    }
+
+    .parent .btn-login-select {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .btn-login-select:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    @@keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .selection-header h1 {
+            font-size: 2rem;
+        }
+
+        .selection-header p {
+            font-size: 1rem;
+        }
+
+        .login-cards-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="selection-container">
+    <div class="selection-wrapper">
+        <div class="selection-header">
+            <h1>Welcome to Smart Eduverse</h1>
+            <p>Please select your login type to continue</p>
+        </div>
+
+        <div class="login-cards-grid">
+            <!-- Staff Card -->
+            <div class="login-card staff" onclick="window.location.href='@Url.Action("Login", "StaffAccount")'">
+                <div class="card-icon">
+                    <i class="bi bi-person-badge-fill"></i>
+                </div>
+                <h2 class="card-title">Staff</h2>
+                <p class="card-description">
+                    Staff member access for academic management
+                </p>
+                <a href="@Url.Action("Login", "StaffAccount")" class="btn-login-select">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Login as Staff
+                </a>
+            </div>
+
+            <!-- Parent Card -->
+            <div class="login-card parent" onclick="window.location.href='@Url.Action("Login", "ParentAccount")'">
+                <div class="card-icon">
+                    <i class="bi bi-person-hearts"></i>
+                </div>
+                <h2 class="card-title">Parent</h2>
+                <p class="card-description">
+                    Parent access to view student information
+                </p>
+                <a href="@Url.Action("Login", "ParentAccount")" class="btn-login-select">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Login as Parent
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

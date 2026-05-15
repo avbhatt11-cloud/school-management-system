@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.FeePaymentViewModel>
+
+@{
+    ViewBag.Title = "View Fee Status";
+}
+
+<h2>Fee Status - @ViewBag.ClassName</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Class</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Payment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-capitalize">@item.StudentFirstName @item.StudentLastName</td>
+                <td>@item.ClassName</td>
+                <td>@item.Amount</td>
+                <td class="text-capitalize">@item.Status</td>
+                <td>@(item.PaymentDate != null ? item.PaymentDate.Value.ToString("dd MMM yyyy") : "-")</td>
+            </tr>
+        }
+    </tbody>
+</table>

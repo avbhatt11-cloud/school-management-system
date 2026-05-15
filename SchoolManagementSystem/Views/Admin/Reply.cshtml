@@ -1,0 +1,165 @@
+﻿@model SchoolManagementSystem.Models.Feedback
+
+@{
+    ViewBag.Title = "Reply Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Admin Layout
+}
+
+<head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<div class="d-flex justify-content-between align-items-center mb-4 profile">
+    <h2 class="mt-2 mb-2 text-green">
+        <i class="fa-regular fa-paper-plane me-2"></i>
+        Reply to Feedback
+    </h2>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <div class="card shadow-sm p-4">
+        @using (Html.BeginForm("Reply", "Admin", new { id = Model.FeedbackId }, FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.FeedbackId)
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Parent's Feedback:</label>
+                <p class="form-control-plaintext">@Model.Message</p>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="Reply">Reply: <span class="text-danger">*</span></label>
+
+                @Html.TextAreaFor(m => m.Reply, new
+                {
+                    id = "Reply",  // ✅ ADD THIS LINE
+                    @class = "form-control" + (ViewData.ModelState.ContainsKey("Reply") && ViewData.ModelState["Reply"].Errors.Count > 0 ? " is-invalid" : ""),
+                    rows = "4",
+                    maxlength = "500",
+                    placeholder = "Write your reply here...",
+                    required = "required"
+                })
+                <!-- ✅ Server-side validation error message -->
+                @Html.ValidationMessageFor(m => m.Reply, null, new { @class = "invalid-feedback" })
+
+
+
+                <!-- ✅ Character counter -->
+                <div class="d-flex justify-content-lg-start">
+                    <small class="text-muted" id="charCounter">
+                         
+                        <span id="currentCount">@(Model.Reply != null ? Model.Reply.Length.ToString() : "0")   </span>
+                        / 500 characters
+                    </small>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                <span class="me-1"></span> Submit Reply
+            </button>
+            
+
+            @Html.ActionLink("Cancel", "ManageFeedback", null, new { @class = "btn btn-secondary" })
+        }
+    </div>
+</div>
+
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    /* ✅ Character counter color change when limit is near */
+    #charCounter.warning {
+        color: #ffc107 !important;
+        font-weight: bold;
+    }
+
+    #charCounter.danger {
+        color: #dc3545 !important;
+        font-weight: bold;
+    }
+</style>
+
+<script>document.addEventListener("DOMContentLoaded", function () {
+        var textarea = document.getElementById("Reply");
+        var currentCountEl = document.getElementById("currentCount");
+        var charCounter = document.getElementById("charCounter");
+        var maxLength = 500;
+
+        // ✅ Update character count on input
+        textarea.addEventListener("input", function () {
+            var len = textarea.value.length;
+            currentCountEl.textContent = len;
+
+            // ✅ Color change based on remaining characters
+            charCounter.classList.remove("warning", "danger");
+            if (len >= 450) {
+                charCounter.classList.add("warning");
+            }
+            if (len >= 490) {
+                charCounter.classList.remove("warning");
+                charCounter.classList.add("danger");
+            }
+        });
+
+        // ✅ Client-side validation on form submit
+        var form = textarea.closest("form");
+        form.addEventListener("submit", function (e) {
+            var reply = textarea.value.trim();
+
+            // Remove previous error styling
+            textarea.classList.remove("is-invalid");
+            var existingError = document.getElementById("clientErrorMsg");
+            if (existingError) existingError.remove();
+
+            if (reply === "") {
+                e.preventDefault();
+                textarea.classList.add("is-invalid");
+
+                // Show error message
+                var errorDiv = document.createElement("div");
+                errorDiv.id = "clientErrorMsg";
+                errorDiv.className = "invalid-feedback";
+                errorDiv.style.display = "block";
+                errorDiv.textContent = "Reply is required. Please enter your reply.";
+                textarea.parentNode.insertBefore(errorDiv, textarea.nextSibling);
+
+                textarea.focus();
+                return false;
+            }
+
+            if (reply.length > maxLength) {
+                e.preventDefault();
+                textarea.classList.add("is-invalid");
+
+                var errorDiv = document.createElement("div");
+                errorDiv.id = "clientErrorMsg";
+                errorDiv.className = "invalid-feedback";
+                errorDiv.style.display = "block";
+                errorDiv.textContent = "Reply cannot exceed 500 characters.";
+                textarea.parentNode.insertBefore(errorDiv, textarea.nextSibling);
+
+                textarea.focus();
+                return false;
+            }
+        });
+    });</script>

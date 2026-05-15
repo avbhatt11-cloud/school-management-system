@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Material>
+@{
+    ViewBag.Title = "Class Materials";
+}
+
+
+<div class="mb-4 mt-3 fw-bold profile">
+    <h2 style="color: #2d5f5d;">
+        <i class="bi bi-book-half"></i> Study Materials - Class @ViewBag.StudentClass
+    </h2>
+</div>
+
+<!-- Success Message -->
+<div id="successMessage" class="alert alert-success alert-dismissible fade" role="alert" style="margin: 20px 30px; display: none;">
+    <i class="fa fa-check-circle"></i> <span id="messageText"></span>
+    <button type="button" class="btn-close" onclick="closeMessage()"></button>
+</div>
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+    <table class="table table-bordered table-striped" style="table-layout: fixed; word-wrap: break-word;">
+        <thead class="table-dark">
+            <tr>
+                <th style="width:5%">No.</th>
+                <th style="width:15%">Title</th>
+                <th style="width:30%">Description</th>
+                <th style="width:20%">File</th>
+                <th style="width:15%">Uploaded At</th>
+                <th style="width:15%">Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int i = 1;
+                foreach (var material in Model)
+                {
+                    <tr>
+                        <th>@i</th>
+                        <td>@material.Title</td>
+                        <td>@material.Description</td>
+                        <td>@material.FileName</td>
+                        <td>@material.CreatedAt</td>
+                        <td>
+                            <button onclick="downloadFile(@material.Id, '@material.FileName')"
+                                    class="btn btn-success">
+                                <i class="fa fa-download"></i> Download
+                            </button>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">
+                        No materials available for your class.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .btn-download {
+        background-color: #4FC3F7;
+        color: black;
+        border: none;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+        .btn-download:hover {
+            background-color: #29B6F6;
+            color: black;
+        }
+    .table td, .table th {
+        word-break: break-word;
+        white-space: normal;
+        vertical-align: middle;
+    }
+</style>
+
+<script>
+    function downloadFile(materialId, fileName) {
+        // Create download URL
+        var url = '@Url.Action("DownloadMaterial", "Parent")?id=' + materialId;
+
+        // Create invisible iframe for download
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
+
+        // Show success message after short delay
+        setTimeout(function() {
+            showSuccessMessage('Material "' + fileName + '" downloaded successfully!');
+        }, 1000);
+    }
+
+    function showSuccessMessage(message) {
+        var messageDiv = document.getElementById('successMessage');
+        var messageText = document.getElementById('messageText');
+
+        messageText.textContent = message;
+        messageDiv.style.display = 'block';
+        messageDiv.classList.add('show');
+
+        // Auto hide after 5 seconds
+        setTimeout(function() {
+            closeMessage();
+        }, 5000);
+    }
+
+    function closeMessage() {
+        var messageDiv = document.getElementById('successMessage');
+        messageDiv.classList.remove('show');
+        setTimeout(function() {
+            messageDiv.style.display = 'none';
+        }, 150);
+    }
+</script>

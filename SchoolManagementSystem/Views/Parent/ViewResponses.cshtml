@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Feedback>
+
+@{
+    ViewBag.Title = "View Responses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View Responses</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Feedback</th>
+            <th>Submitted On</th>
+            <th>Admin Response</th>
+            <th>Responded On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.Message</td>
+
+                <td>@f.CreatedAt.ToString("dd/MM/yyyy")</td>
+
+                <td>
+                    @if (!string.IsNullOrEmpty(f.Reply))
+                    {
+                        @f.Reply
+                    }
+                    else
+                    {
+                        <span class="text-muted">No response yet</span>
+                    }
+                </td>
+
+                <td>
+                    @(f.RepliedAt.HasValue
+                        ? f.RepliedAt.Value.ToString("dd/MM/yyyy")
+                        : "-")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

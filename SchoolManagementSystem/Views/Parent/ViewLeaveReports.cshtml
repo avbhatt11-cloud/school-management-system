@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.LeaveReport>
+@{
+    ViewBag.Title = "View Leave Reports";
+}
+<div class="mb-4 mt-3 text-primary fw-bold profile ">
+
+    <h2 style="color: #2d5f5d;"><i class="bi bi-file-earmark-text-fill"></i> View Leave Reports</h2>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <table class="table table-bordered table-striped" style="table-layout: fixed; word-wrap: break-word;">
+        <thead class="table-dark">
+            <tr>
+                <th style="width:4%">No.</th>
+                <th style="width:10%">Student</th>
+                <th style="width:7%">Class</th>
+                <th style="width:10%">Title</th>
+                <th style="width:18%">Reason</th>
+                <th style="width:12%">Dates</th>
+                <th style="width:5%">Days</th>
+                <th style="width:8%">Status</th>
+                <th style="width:13%">Attachment</th>
+                <th style="width:13%">Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int i = 1;}
+
+            @foreach (var report in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@report.StudentName</td>
+                    <td>@report.ClassName</td>
+                    <td>@report.Title</td>
+                    <td>@report.Reason</td>
+                    <td>@(report.StartDate?.ToString("yyyy-MM-dd"))  To <br />@(report.EndDate?.ToString("yyyy-MM-dd"))</td>
+                    <td>@report.TotalDays</td>
+                    <td>@report.Status</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(report.AttachmentPath))
+                        {
+                            <a href="@Url.Content(report.AttachmentPath)" target="_blank">@report.AttachmentFileName</a>
+                            <div><small>@(report.AttachmentSize/1024) KB</small></div>
+                        }
+                    </td>
+                    <td>@report.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("GiveLeaveReport","Parent")" class="btn btn-secondary px-4">Back to list</a>
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+    .table td, .table th {
+        word-break: break-word;
+        white-space: normal;
+        vertical-align: middle;
+    }
+</style>

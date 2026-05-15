@@ -1,0 +1,189 @@
+﻿@model SchoolManagementSystem.Models.OfflineFeePaymentViewModel
+
+@{
+    ViewBag.Title = "Add Offline Fee";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 profile">
+    <h2 class="text-green mt-2 mb-2">
+
+        <i class="bi bi-currency-rupee"></i>
+        Add Offline Fee
+    </h2>
+</div>
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    @using (Html.BeginForm("AddOfflineFee", "Admin", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">@TempData["Error"]</div>
+            }
+
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.ClassName, new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.ClassName,
+                        new SelectList(ViewBag.Classes),
+                        "-- Select Class --",
+                        new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ClassName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.StudentName, new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(m => m.ParentId,
+    new SelectList(Enumerable.Empty<SelectListItem>()),
+    "-- Select Student --",
+    new { @class = "form-control", id = "StudentId" })
+                    @Html.HiddenFor(m => m.StudentName, new { id = "StudentName" })
+
+                    @Html.ValidationMessageFor(m => m.ParentId, "", new { @class = "text-danger" })
+
+
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.Amount, new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.Amount, new
+                    {
+    @class = "form-control",
+    @readonly = "readonly"
+    })
+
+                    @*@Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.FeeType, new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.FeeType, new { @class = "form-control", @readonly = "readonly" })
+
+
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.PaymentDate, new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.PaymentDate,
+                       "{0:yyyy-MM-dd}",
+                          new { @class = "form-control", type = "date", max = DateTime.Now.ToString("yyyy-MM-dd") })
+                    @Html.ValidationMessageFor(m => m.PaymentDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <button type="submit" class="btn btn-success me-2">
+                        <i class="fas fa-save"></i> Save Payment
+                    </button>
+                    @Html.ActionLink("Cancel", "ManageFees", null, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        // When class changes → Load students
+        $("#ClassName").change(function () {
+
+            var className = $(this).val();
+
+            $("#StudentId").empty()
+                .append("<option value=''>Loading...</option>");
+
+            $.get("/Admin/GetStudentsByClass",
+                { className: className },
+                function (data) {
+
+                    $("#StudentId").empty()
+                        .append("<option value=''>-- Select Student --</option>");
+
+                    $.each(data, function (i, item) {
+                        $("#StudentId").append(
+                            "<option value='" + item.Id + "'>" +
+                            item.Name + "</option>");
+                    });
+                });
+        });
+
+
+        // When student changes → Load fee
+        $("#StudentId").change(function () {
+
+
+            var parentId = $(this).val();
+
+            if (parentId === "") return;
+            var studentText = $("#StudentId option:selected").text();
+            $("#StudentName").val(studentText);
+
+
+            $.get("/Admin/GetStudentFeeDetails",
+                { parentId: parentId },
+                function (data) {
+
+                    if (data == null) {
+                        alert("No fee assigned to this student!");
+                        return;
+                    }
+
+                    $("#Amount").val(data.Amount);
+                    $("#FeeType").val(data.FeeType);
+
+                    if (data == null) {
+                        $("#Amount").val("");
+                        $("#FeeType").val("");
+                        $("button[type='submit']").prop("disabled", true);
+                        alert("⚠️ No pending fee found! All fees already paid.");
+                    } else {
+                        $("#Amount").val(data.Amount);
+                        $("#FeeType").val(data.FeeType);
+                        $("button[type='submit']").prop("disabled", false);
+                    }
+
+                });
+        });
+
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

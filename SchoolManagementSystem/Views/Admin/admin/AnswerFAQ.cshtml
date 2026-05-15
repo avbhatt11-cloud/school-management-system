@@ -1,0 +1,27 @@
+﻿@model SchoolManagementSystem.Models.FAQ
+
+@{
+    ViewBag.Title = "Answer FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Answer FAQ</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.FAQId)
+
+    <div class="form-group">
+        <label>Question</label>
+        <p>@Model.Question</p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Answer)
+        @Html.TextAreaFor(m => m.Answer, new { @class = "form-control", rows = 5 })
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Answer</button>
+    @Html.ActionLink("Back to List", "ManageFAQs", null, new { @class = "btn btn-secondary" })
+}

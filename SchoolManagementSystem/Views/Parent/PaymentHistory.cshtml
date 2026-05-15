@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.FeePaymentViewModel>
+
+@{
+    ViewBag.Title = "Payment History";
+}
+
+<h2 class="mb-3">Payment History</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No payments found.</div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Class</th>
+                <th>Amount (₹)</th>
+                <th>Status</th>
+                <th>Payment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ClassName</td>
+                    <td>@item.Amount</td>
+                    <td>
+                        <span class="badge bg-success">Paid</span>
+                    </td>
+                    <td>
+                        @item.PaymentDate?.ToString("dd MMM yyyy")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<p>
+    @Html.ActionLink("⬅ Back to Pay Fees", "PayFees", null, new { @class = "btn btn-secondary" })
+</p>

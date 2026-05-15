@@ -1,0 +1,157 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.ExamSchedule>
+@{
+    ViewBag.Title = "View Exam Schedule";
+}
+
+<div class="mb-4 mt-3 text-primary fw-bold profile">
+    <h2 style="color: #2d5f5d;"><i class="bi bi-calendar2-week-fill"></i> View Exam Schedule</h2>
+</div>
+
+@* ✅ SUCCESS MESSAGE DISPLAY *@
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@* ❌ ERROR MESSAGE DISPLAY *@
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle"></i> @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> No exam schedules available for your class yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Class</th>
+                        <th>Exam Type</th>
+                        <th>Schedule File</th>
+                        <th>Posted By</th>
+                        <th>Posted Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 1;}
+
+                    @foreach (var exam in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@exam.ClassName</td>
+                            <td>
+                                <span class="badge bg-@(exam.ExamType == "Mid-Term" ? "info" : "warning")">
+                                    @exam.ExamType
+                                </span>
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(exam.ScheduleFileName))
+                                {
+                                    <i class="bi bi-file-earmark-pdf text-primary"></i>
+                                    <span>@exam.ScheduleFileName</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No file</span>
+                                }
+                            </td>
+                            <td>@exam.CreatedBy</td>
+                            <td>@exam.CreatedAt.ToString("dd MMM yyyy, hh:mm tt")</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(exam.ScheduleFileName))
+                                {
+                                    @* ✅ Download button with onclick event *@
+                                    <a href="@Url.Action("DownloadExamSchedule", "Parent", new { id = exam.Id })"
+                                       class="btn btn-sm btn-success "
+                                       onclick="showDownloadMessage('@exam.ScheduleFileName')">
+                                        <i class="bi bi-download"></i> Download
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">N/A</span>
+                                }
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .badge {
+        padding: 0.5em 0.75em;
+        font-size: 0.875rem;
+    }
+
+    .btn-download {
+        background-color: #4FC3F7;
+        color: black;
+        border: none;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+        .btn-download:hover {
+            background-color: #29B6F6;
+            color: black;
+        }
+</style>
+
+<script>
+    // ✅ Show download success message
+    function showDownloadMessage(fileName) {
+        // Wait for download to start, then show message
+        setTimeout(function () {
+            // Create success alert
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show';
+            alertDiv.setAttribute('role', 'alert');
+            alertDiv.innerHTML = '<i class="bi bi-check-circle-fill"></i> Exam schedule "' + fileName + '" downloaded successfully! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+
+            // Insert at top of page
+            var container = document.querySelector('.profile');
+            container.parentNode.insertBefore(alertDiv, container.nextSibling);
+
+            // Auto-dismiss after 5 seconds
+            setTimeout(function () {
+                alertDiv.classList.remove('show');
+                setTimeout(function () {
+                    alertDiv.remove();
+                }, 150);
+            }, 5000);
+        }, 500);
+    }
+</script>

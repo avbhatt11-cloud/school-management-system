@@ -1,0 +1,49 @@
+﻿@model SchoolManagementSystem.Models.Gallery
+@{
+    ViewBag.Title = "Delete Photo";
+}
+<div class="container mt-4 text-primary fw-bold profile">
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-image me-2 "></i> Delete Photo
+    </h2>
+</div>
+<div class="row mt-4 g-6 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <h4>Are you sure you want to delete this photo?</h4>
+    <div>
+        <p><strong>@Model.PhotoName</strong></p>
+        <p><img src="@Url.Content(Model.PhotoPath)" alt="@Model.PhotoName" width="200" /></p>
+    </div>
+
+    @using (Html.BeginForm("DeleteGallery", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id", Model.Id)
+
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        @Html.ActionLink("Cancel", "ManageGallery", null, new { @class = "btn btn-secondary" })
+    }
+    </div>
+    <style>
+        .profile-wrapper {
+            margin: 30px;
+            padding: 25px;
+        }
+
+        .profile {
+            margin: 10px 30px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .badge {
+            padding: 0.5em 0.75em;
+            font-size: 0.875rem;
+        }
+        .text-green {
+            color: #2d5f5d !important;
+        }
+    </style>

@@ -1,0 +1,24 @@
+﻿@model SchoolManagementSystem.Models.Gallery
+@{
+    ViewBag.Title = "Add New Photo";
+}
+
+<h2>Add New Photo</h2>
+
+@using (Html.BeginForm("CreateGallery", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.Label("Photo Name")
+        @Html.TextBox("PhotoName", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Upload Photo")
+        <input type="file" name="PhotoFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    @Html.ActionLink("Back to List", "ManageGallery", null, new { @class = "btn btn-secondary" })
+}

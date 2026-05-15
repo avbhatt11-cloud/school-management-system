@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.FAQ>
+@{
+    ViewBag.Title = "Manage FAQs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage FAQs</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Asked By</th>
+            @*<th>Parent Name</th>*@
+            <th>Asked On</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var faq in Model)
+        {
+            <tr>
+                <td>@faq.Question</td>
+                <td>@faq.Answer</td>
+                <td>@faq.AskedBy</td>
+                @*<td>@(faq.Parent != null ? faq.Parent.ParentFirstName + " " + faq.Parent.ParentLastName : "-")</td>*@
+
+                <td>@faq.AskedOn.ToString("dd-MM-yyyy")</td>
+                <td>
+                    @Html.ActionLink(
+                        "Answer",
+                        "AnswerFAQ",
+                        "Admin",
+                        new { id = faq.FAQId },
+                        new { @class = "btn btn-primary btn-sm" }
+                    )
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

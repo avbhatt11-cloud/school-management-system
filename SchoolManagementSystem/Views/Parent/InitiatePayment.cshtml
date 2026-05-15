@@ -1,0 +1,41 @@
+﻿
+
+@{
+    ViewBag.Title = "Complete Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Complete Your Payment</h3>
+                </div>
+                <div class="card-body">
+                    <div id="payment-form"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+<script>
+    const cashfree = Cashfree({
+        mode: "sandbox" // Change to "production" for live
+    });
+
+    const paymentSessionId = "@ViewBag.PaymentSessionId";
+
+    cashfree.checkout({
+        paymentSessionId: paymentSessionId,
+        returnUrl: "https://localhost:44356/Parent/PaymentCallback?payment_id=@ViewBag.PaymentId&order_id=@ViewBag.OrderId",
+        redirectTarget: "_self"
+    }).then(function(result) {
+        if (result.error) {
+            alert("Payment failed: " + result.error.message);
+            window.location.href = "/Parent/PayFees";
+        }
+    });
+</script>

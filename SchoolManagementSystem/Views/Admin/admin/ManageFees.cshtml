@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Fee>
+@{
+    ViewBag.Title = "Manage Fees";
+}
+
+<h2 class="mb-3">Manage Fees</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        @Html.ActionLink("➕ Add New Fee", "CreateFee", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th style="width: 100px;">Class</th>
+            <th style="width: 120px;">Amount (₹)</th>
+            <th style="width: 120px;">Created At</th>
+            <th style="width: 200px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fee in Model)
+        {
+            <tr>
+                <td>@fee.ClassName</td>
+                <td>@fee.Amount</td>
+                <td>@fee.CreatedAt.ToString("dd MMM yyyy")</td>
+                <td class="d-flex flex-wrap gap-2">
+                    @Html.ActionLink("✏️ Edit", "EditFee", new { id = fee.FeeId }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("🗑 Delete", "DeleteFee", new { id = fee.FeeId }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("📌 Assign To Class", "AssignFeeToClass", new { className = fee.ClassName }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("👨‍👩‍👦 View Students", "ViewFeeStatus", new { className = fee.ClassName }, new { @class = "btn btn-info btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

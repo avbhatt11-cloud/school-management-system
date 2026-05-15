@@ -1,0 +1,118 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.TimeTable>
+@{
+    ViewBag.Title = "ViewTimeTable";
+}
+
+<div class="mb-4 mt-3 text-primary fw-bold profile">
+    <h2 style="color: #2d5f5d;">
+        <i class="fas fa-clipboard-list" style="color: #2d5f5d;"></i> Class Time Table
+    </h2>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+
+    @using (Html.BeginForm("ViewTimeTable", "Parent", FormMethod.Get, new { id = "dayForm" }))
+    {
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">
+                    Select Day <span class="text-danger">*</span>
+                </label>
+                @Html.DropDownList(
+                    "selectedDay",
+                    (SelectList)ViewBag.Days,
+                    "-- Select Day --",
+                    new
+                    {
+                        @class = "form-select shadow-sm",
+                        id = "selectedDay",
+                        onchange = "submitDayForm();"
+                    }
+                )
+            </div>
+        </div>
+    }
+
+    @* Show error message *@
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <strong>Error!</strong> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @* Show warning/info message *@
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+            <i class="bi bi-info-circle-fill"></i> @ViewBag.Message
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @* Show timetable only if data exists *@
+    @if (Model != null && Model.Any())
+    {
+        <div class="card shadow-lg rounded-3 mt-3">
+            <!-- Yeh karo -->
+            <div class="card-header text-center" style=" color: black;">
+                <h5 class="mb-0" style="color: black;">
+                    <i class="bi bi-calendar-week"></i>
+                    Timetable for Class @ViewBag.StudentClass
+                </h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th>No.</th>
+                                <th>📖 Subject</th>
+                                <th>👨‍🏫 Teacher</th>
+                                <th>⏰ Start Time</th>
+                                <th>⏳ End Time</th>
+                                <th>🕒 Duration (Minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1;}
+
+                            @foreach (var item in Model)
+                            {
+                                <tr class="text-center">
+                                    <td>@i</td>
+                                    <td class="fw-semibold text-capitalize">@item.SubjectName</td>
+                                    <td class="text-capitalize">@item.TeacherName</td>
+                                    <td>@item.StartTime.ToString("hh:mm tt")</td>
+                                    <td>@item.EndTime.ToString("hh:mm tt")</td>
+                                    <td class="text-center">@item.DurationInMinutes</td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+   
+</style>
+
+<script>
+    function submitDayForm() {
+        document.getElementById("dayForm").submit();
+    }
+</script>

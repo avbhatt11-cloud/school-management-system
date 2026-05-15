@@ -1,0 +1,46 @@
+﻿@model SchoolManagementSystem.Models.Parent
+
+@{
+    ViewBag.Title = "Parent Details";
+}
+
+<h2>Parent Details</h2>
+
+<div>
+    <h4>Parent Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>Student Name</dt>
+        <dd>@Model.StudentFirstName @Model.StudentLastName</dd>
+
+        <dt>Parent Name</dt>
+        <dd>@Model.ParentFirstName @Model.ParentLastName</dd>
+
+        <dt>Gender</dt>
+        <dd>@Model.Gender</dd>
+
+        <dt>Contact Number</dt>
+        <dd>@Model.ContactNumber</dd>
+
+        <dt>Email</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Address</dt>
+        <dd>@Model.Address</dd>
+
+        <dt>Created At</dt>
+        <dd>@Model.CreatedDate.ToString("dd-MM-yyyy")</dd>
+
+        <dt>Status</dt>
+        <dd>
+            @(Model.IsActive ? "Active" : "Inactive")
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "EditParent", new { id = Model.ParentId }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "ManageParents", null, new { @class = "btn btn-secondary ms-2" })
+</p>

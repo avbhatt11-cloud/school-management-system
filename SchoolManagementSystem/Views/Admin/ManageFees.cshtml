@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Fee>
+
+@{
+    ViewBag.Title = "Manage Fees";
+}
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success ">
+        @TempData["Message"]
+        <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
+
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 profile mx-10">
+
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-currency-rupee me-1 "></i>Manage Fees
+    </h2>
+
+<div class="d-flex gap-2 me-2">
+    @Html.ActionLink("Add New Fee", "CreateFee", null, new { @class = "btn btn-primary me-2" })
+    @Html.ActionLink("Add Offline Fee", "AddOfflineFee", null, new { @class = "btn btn-primary me-2" })
+    @Html.ActionLink("Fee Report", "FeeReport", null, new { @class = "btn btn-outline-color" })
+</div>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>No.</th>
+                <th>Class Name</th>
+                <th>Fee Type</th>
+                <th>Amount</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int i = 1;}
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.ClassName</td>
+                    <td>
+                        @item.FeeType
+                        @if (item.FeeType == "6-Month")
+                        {
+                            <span class="badge bg-info">Period @item.Period</span>
+                        }
+                    </td>
+                    <td>₹@item.Amount</td>
+                    <td>@item.CreatedAt.ToString("dd MMM yyyy")</td>
+                    <td>
+                        @Html.ActionLink("Assign", "AssignFeeToClass", new { className = item.ClassName }, new { @class = "btn btn-sm btn-info" })
+                        @Html.ActionLink("View Status", "ViewFeeStatus", new { className = item.ClassName }, new { @class = "btn btn-sm btn-warning" })
+                        @Html.ActionLink("Delete", "DeleteFee", new { id = item.FeeId }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+    .btn-outline-color {
+        color: #2d5f5d;
+        border: 2px solid #2d5f5d;
+        background: transparent;
+    }
+
+        .btn-outline-color:hover {
+            background: #ff6b6b;
+            color: white;
+        }
+</style>

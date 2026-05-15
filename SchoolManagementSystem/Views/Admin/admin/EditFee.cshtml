@@ -1,0 +1,27 @@
+﻿@model SchoolManagementSystem.Models.Fee
+
+@{
+    ViewBag.Title = "Edit Fee";
+}
+
+<h2>Edit Fee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.FeeId) <!-- जरूरी: Update के लिए ID पास करनी है -->
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ClassName)
+        @Html.TextBoxFor(m => m.ClassName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="@Url.Action("ManageFees")" class="btn btn-secondary">Cancel</a>
+}

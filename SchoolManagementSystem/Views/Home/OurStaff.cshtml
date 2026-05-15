@@ -1,0 +1,176 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Staff>
+@{
+    ViewBag.Title = "Our Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .staff-hero {
+        background: #B2D3C2;
+        padding: 50px 0 40px;
+        margin-bottom: 50px;
+    }
+
+    .staff-card {
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #fff;
+    }
+
+        .staff-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+        }
+
+    /* Photo area — light neutral background, no heavy green */
+    .staff-photo-area {
+        background: #f4f4f4;
+        padding: 36px 20px 24px;
+        text-align: center;
+        position: relative;
+    }
+
+        .staff-photo-area::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2d5f5d, #ff6b6b);
+        }
+
+    .staff-photo {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .staff-name {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #1e4644;
+        margin: 14px 0 4px;
+    }
+
+    .staff-badge {
+        display: inline-block;
+        background: #ff6b6b;
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .staff-details {
+        padding: 20px 22px;
+        font-size: 0.86rem;
+        color: #555;
+    }
+
+        .staff-details .detail-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px ;
+            gap: 10px;
+        }
+
+            .staff-details .detail-row i {
+                color: #2d5f5d;
+                font-size: 0.95rem;
+                width: 16px;
+                flex-shrink: 0;
+            }
+
+            .staff-details .detail-row span {
+                line-height: 1.3;
+            }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .custom-padding {
+        padding-left: 66px;
+        padding-right: 66px;
+    }
+
+    .custom-paddingg {
+        padding-left: 60px;
+        padding-right: 50px;
+    }
+
+    body {
+        background-color: #f8f9fa; /* Bootstrap bg-light color */
+    }
+
+</style>
+
+<!-- Hero Banner -->
+<div class="bg-light">
+            <div class="staff-hero">
+                <div class="container-fluid text-green text-start custom-padding">
+                    <h1 class="fw-bold display-4">Meet Our Staff</h1>
+                    <p class="lead mb-0 ">Dedicated educators shaping the future</p>
+                </div>
+            </div>
+
+            <div class="container-fluid custom-padding mb-5 bg-light">
+                <div class="row g-4">
+                    @foreach (var staff in Model)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="staff-card card h-100">
+                                <!-- Photo Area — light grey, no green -->
+                                <div class="staff-photo-area">
+                                    @if (!string.IsNullOrEmpty(staff.PhotoPath))
+                                    {
+                                        <img src="@Url.Content(staff.PhotoPath)" class="staff-photo" alt="@staff.FirstName" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/images/default-user.png" class="staff-photo" alt="Default" />
+                                    }
+                                    <div class="staff-name">@staff.FirstName @staff.LastName</div>
+                                    <span class="staff-badge">@staff.Designation</span>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="staff-details">
+                                    <div class="detail-row">
+                                        <i class="bi bi-book"></i>
+                                        <span><strong>Class:</strong> @staff.ClassAssigned</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <i class="bi bi-mortarboard"></i>
+                                        <span><strong>Education:</strong> @staff.Education</span>
+                                    </div>
+
+                                    @*<div class="detail-row">
+                                        <i class="bi bi-gender-ambiguous"></i>
+                                        <span><strong>Gender:</strong> @staff.Gender</span>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (!Model.Any())
+                    {
+                        <div class="col-12 text-center py-5 bg-light">
+                            <i class="bi bi-people" style="font-size: 3rem; color: #ccc;"></i>
+                            <p class="text-muted mt-3">No staff members found.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+    
+</div>

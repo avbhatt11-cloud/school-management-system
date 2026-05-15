@@ -1,0 +1,31 @@
+﻿@model SchoolManagementSystem.Models.Parent
+
+@{
+    ViewBag.Title = "Delete Parent";
+}
+
+<h2>Delete Parent</h2>
+
+<h3>Are you sure you want to delete this parent?</h3>
+<div>
+    <h4>Parent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Student Name</dt>
+        <dd>@Model.StudentFirstName @Model.StudentLastName</dd>
+
+        <dt>Parent Name</dt>
+        <dd>@Model.ParentFirstName @Model.ParentLastName</dd>
+
+        <dt>Contact Number</dt>
+        <dd>@Model.ContactNumber</dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Delete" class="btn btn-danger" />
+ 
+@Html.ActionLink("Cancel", "ManageParents", null, new { @class = "btn btn-secondary" })
+}

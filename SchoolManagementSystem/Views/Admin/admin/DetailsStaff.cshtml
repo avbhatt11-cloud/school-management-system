@@ -1,0 +1,56 @@
+﻿@model SchoolManagementSystem.Models.Staff
+@{
+    ViewBag.Title = "Staff Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Staff Details</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        @if (!string.IsNullOrEmpty(Model.PhotoPath))
+        {
+            <img src="@Url.Content(Model.PhotoPath)" class="img-fluid rounded" alt="Staff Photo" />
+        }
+        else
+        {
+            <img src="~/Content/images/default-user.png" class="img-fluid rounded" alt="Default Photo" />
+        }
+    </div>
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">Username</dt>
+            <dd class="col-sm-8">@Model.Username</dd>
+
+            <dt class="col-sm-4">Name</dt>
+            <dd class="col-sm-8">@Model.FirstName @Model.LastName</dd>
+
+            <dt class="col-sm-4">Email</dt>
+            <dd class="col-sm-8">@Model.Email</dd>
+
+            <dt class="col-sm-4">Contact</dt>
+            <dd class="col-sm-8">@Model.ContactNo</dd>
+
+            <dt class="col-sm-4">Designation</dt>
+            <dd class="col-sm-8">@Model.Designation</dd>
+
+            <dt class="col-sm-4">Education</dt>
+            <dd class="col-sm-8">@Model.Education</dd>
+
+            <dt class="col-sm-4">Address</dt>
+            <dd class="col-sm-8">@Model.Address</dd>
+
+            <dt class="col-sm-4">Class Assigned</dt>
+            <dd class="col-sm-8">@Model.ClassAssigned</dd>
+
+            <dt class="col-sm-4">Gender</dt>
+            <dd class="col-sm-8">@Model.Gender</dd>
+
+            <dt class="col-sm-4">Created At</dt>
+            <dd class="col-sm-8">@Model.CreatedAt.ToString("dd MMM yyyy")</dd>
+        </dl>
+
+        <a class="btn btn-secondary" href="@Url.Action("ManageStaff","Admin")">Back</a>
+        <a class="btn btn-warning" href="@Url.Action("EditStaff","Admin", new { id = Model.Id })">Edit</a>
+    </div>
+</div>

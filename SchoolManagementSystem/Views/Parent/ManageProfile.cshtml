@@ -1,0 +1,259 @@
+﻿@model SchoolManagementSystem.Models.Parent
+
+@{
+    ViewBag.Title = "Manage Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 fw-bold profile" style="color: #2d5f5d;">
+    <i class="bi bi-person-badge-fill me-2"></i> Manage Profile
+</h2>
+
+<!-- ✅ Success / Error Messages -->
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+        <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i> @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@using (Html.BeginForm("ManageProfile", "Parent", FormMethod.Post, new { enctype = "multipart/form-data", id = "parentProfileForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ParentId)
+    @*<div class="container my-2 px-1">*@
+    <div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+        <!-- =================== Student Details =================== -->
+        <h4 class="fw-bold mt-4 mb-3" style="color: #ff6b6b;">Student Details</h4>
+        <hr />
+
+        <div class="col-md-4 col-sm-6">
+            <label class="form-label fw-bold">
+                Student First Name <span class="required-star">*</span>
+            </label>
+
+            @Html.TextBoxFor(m => m.StudentFirstName, new
+       {
+           @class = "form-control text-capitalize",
+           placeholder = "Enter Student First Name",
+           maxlength = "20"
+
+
+       })
+
+            @Html.ValidationMessageFor(m => m.StudentFirstName, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.StudentMiddleName, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.StudentMiddleName, new { @class = "form-control text-capitalize", placeholder = "Enter Student Middle Name", maxlength = "20" })
+            @Html.ValidationMessageFor(m => m.StudentMiddleName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.StudentLastName, new { @class = "form-label fw-bold" })  <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.StudentLastName, new { @class = "form-control text-capitalize", placeholder = "Enter Student Last Name", maxlength = "20" })
+            @Html.ValidationMessageFor(m => m.StudentLastName, "", new { @class = "text-danger" })
+
+
+
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.StudentGender, new { @class = "form-label fw-bold" })  <span class="required-star">*</span>
+            @Html.DropDownListFor(m => m.StudentGender, new SelectList(new[] { "Male", "Female", "Other" }, Model.StudentGender), "-- Select Gender --", new { @class = "form-select" })
+            @Html.ValidationMessageFor(m => m.StudentGender, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.ClassName, new { @class = "form-label fw-bold" })
+            <span class="required-star">*</span>
+
+            @Html.TextBoxFor(m => m.ClassName, new
+            {
+                @class = "form-control readonly-bg",
+                @readonly = "readonly",
+
+            })
+
+            @Html.ValidationMessageFor(m => m.ClassName, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- =================== Parent Details =================== -->
+        <h4 class="fw-bold mb-3" style="color: #ff6b6b;">Parent Details</h4>
+        <hr />
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.ParentFirstName, new { @class = "form-label fw-bold" })  <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.ParentFirstName, new { @class = "form-control text-capitalize", placeholder = "Enter Parent First Name", maxlength = "20" })
+            @Html.ValidationMessageFor(m => m.ParentFirstName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.ParentMiddleName, new { @class = "form-label fw-bold" })
+            @Html.TextBoxFor(m => m.ParentMiddleName, new { @class = "form-control text-capitalize", placeholder = "Enter Parent Middle Name", maxlength = "20" })
+            @Html.ValidationMessageFor(m => m.ParentMiddleName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.ParentLastName, new { @class = "form-label fw-bold" })  <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.ParentLastName, new { @class = "form-control text-capitalize", placeholder = "Enter Parent Last Name", maxlength = "20" })
+            @Html.ValidationMessageFor(m => m.ParentLastName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.Gender, new { @class = "form-label fw-bold" })  <span class="required-star">*</span>
+            @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }, Model.Gender), "-- Select Gender --", new { @class = "form-select" })
+            @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <label class="form-label fw-bold">
+                Contact Number <span class="required-star">*</span>
+            </label>
+
+            @Html.TextBoxFor(m => m.ContactNumber, new
+            {
+                @class = "form-control",
+                placeholder = "Enter 10 digit contact number",
+                maxlength = "10"
+            })
+
+            @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+            @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })  <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            @Html.LabelFor(m => m.Address, new { @class = "form-label fw-bold" })
+            <span class="required-star">*</span>
+
+            @Html.TextAreaFor(m => m.Address, new
+            {
+                @class = "form-control",
+                maxlength = "100",
+                placeholder = "Enter Address (max 100 characters)"
+            })
+
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+
+
+        <!-- =================== Login Details =================== -->
+        <h4 class="fw-bold mt-4 mb-3" style="color: #ff6b6b;">Login Details</h4>
+        <hr />
+        <!-- Username -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Username, new { @class = "form-label fw-bold" })
+                @if (Session["Role"].ToString() == "Parent")
+                {
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter username" })
+                }
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <label class="form-label fw-bold">Password</label>
+
+            <div class="input-group">
+                @Html.TextBoxFor(m => m.Password, new
+                {
+                    @class = "form-control",
+                    type = "password",
+                    @readonly = "readonly",
+                    id = "passwordField"
+                })
+
+                <span class="input-group-text" style="cursor:pointer"
+                      onclick="togglePassword('passwordField', this)">
+                    <i class="bi bi-eye"></i>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+            <label class="form-label fw-bold">Confirm Password</label>
+
+            <div class="input-group">
+                <input type="password"
+                       class="form-control"
+                       value="@Model.Password"
+                       readonly
+                       id="confirmPasswordField" />
+
+                <span class="input-group-text" style="cursor:pointer"
+                      onclick="togglePassword('confirmPasswordField', this)">
+                    <i class="bi bi-eye"></i>
+                </span>
+            </div>
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success px-4 me-2">Update</button>
+            <button type="button" class="btn btn-secondary px-4" onclick="resetParentProfileForm()">Cancel</button>
+        </div>
+    </div>
+
+
+}
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 26px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .required-star {
+        color: red;
+        margin-left: 3px;
+        font-weight: bold;
+    }
+</style>
+<script>
+    function togglePassword(fieldId, iconSpan) {
+        const field = document.getElementById(fieldId);
+        const icon = iconSpan.querySelector("i");
+
+        if (field.type === "password") {
+            field.type = "text";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+        } else {
+            field.type = "password";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+        }
+    }// Reset parent profile form function
+    function resetParentProfileForm() {
+        // Page reload karke original state mein le aaye
+        location.reload();
+    }
+</script>

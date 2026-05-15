@@ -1,0 +1,92 @@
+﻿@model SchoolManagementSystem.Models.Staff
+@{
+    ViewBag.Title = "Staff Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<div class="mt-3 mb-4 fw-bold profile">
+
+    <h2 class=" text-green mb-2 mt-2">
+        <i class="far fa-user me-2"></i>
+        Staff Details
+    </h2>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <div class="row">
+        <div class="col-md-4">
+            @if (!string.IsNullOrEmpty(Model.PhotoPath))
+            {
+                <img src="@Url.Content(Model.PhotoPath)" class="img-fluid rounded" alt="Staff Photo" />
+            }
+            else
+            {
+                <img src="~/Content/images/default-user.png" class="img-fluid rounded" alt="Default Photo" />
+            }
+        </div>
+        <div class="col-md-8">
+            <dl class="row">
+                <dt class="col-sm-4">Username</dt>
+                <dd class="col-sm-8">@Model.Username</dd>
+
+                <dt class="col-sm-4">Password</dt>
+                <dd class="col-sm-8">@Model.Password</dd>
+
+                <dt class="col-sm-4">Name</dt>
+                <dd class="col-sm-8">@Model.FirstName @Model.LastName</dd>
+
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8">@Model.Email</dd>
+
+                <dt class="col-sm-4">Contact</dt>
+                <dd class="col-sm-8">@Model.ContactNo</dd>
+
+                <dt class="col-sm-4">Designation</dt>
+                <dd class="col-sm-8">@Model.Designation</dd>
+
+                <dt class="col-sm-4">Education</dt>
+                <dd class="col-sm-8">@Model.Education</dd>
+
+                <dt class="col-sm-4">Address</dt>
+                <dd class="col-sm-8">@Model.Address</dd>
+
+                <dt class="col-sm-4">Class Assigned</dt>
+                <dd class="col-sm-8">@Model.ClassAssigned</dd>
+
+                <dt class="col-sm-4">Gender</dt>
+                <dd class="col-sm-8">@Model.Gender</dd>
+
+                <dt class="col-sm-4">Created At</dt>
+                <dd class="col-sm-8">@Model.CreatedAt.ToString("dd MMM yyyy")</dd>
+            </dl>
+
+            <a class="btn btn-secondary" href="@Url.Action("ManageStaff","Admin")">Back to list</a>
+            <a class="btn btn-warning" href="@Url.Action("EditStaff","Admin", new { id = Model.Id })">Edit</a>
+        </div>
+    </div>
+</div>
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .badge {
+        padding: 0.5em 0.75em;
+        font-size: 0.875rem;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+</style>

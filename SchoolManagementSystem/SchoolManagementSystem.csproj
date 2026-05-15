@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B343473-653D-4EC4-895C-109543BFA406}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolManagementSystem</RootNamespace>
+    <AssemblyName>SchoolManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44356</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Razorpay, Version=3.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Razorpay.3.3.2\lib\net47\Razorpay.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminAccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParentController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Filters\RoleAuthorizeAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\AttendanceReportViewModel.cs" />
+    <Compile Include="Models\ExamSchedule.cs" />
+    <Compile Include="Models\FAQ.cs" />
+    <Compile Include="Models\Fee.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\FeePayment.cs" />
+    <Compile Include="Models\FeePaymentViewModel.cs" />
+    <Compile Include="Models\FeeReportViewModel.cs" />
+    <Compile Include="Models\Gallery.cs" />
+    <Compile Include="Models\LeaveReport.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\MonthlyFeeData.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\Parent.cs" />
+    <Compile Include="Models\RecentActivityViewModel.cs" />
+    <Compile Include="Models\Results.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\StaffClassSubject.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\TimeTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CashfreeService.cs" />
+    <Compile Include="Services\ReceiptGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\2dcc6f1fb4f191d63160f4a4c72d8ece.jpg" />
+    <Content Include="Content\images\3b9830bb-0f7b-459c-bc27-e7e1086c2c0f.png" />
+    <Content Include="Content\images\4746f0e75bcfc7d85b2791b75937079d.jpg" />
+    <Content Include="Content\images\c.jpg" />
+    <Content Include="Content\images\ChatGPT Image Mar 23, 2026, 09_32_49 PM.png" />
+    <Content Include="Content\images\Contain.jpeg" />
+    <Content Include="Content\images\edu.png" />
+    <Content Include="Content\images\lo.png" />
+    <Content Include="Content\images\Hero.jpg" />
+    <Content Include="Content\images\P.jpg" />
+    <Content Include="Content\images\logo3.png" />
+    <Content Include="Content\images\smart.png" />
+    <Content Include="Content\images\l.png" />
+    <Content Include="Content\images\WhatsApp Image 2026-01-05 at 2.46.10 PM.jpeg" />
+    <Content Include="Content\images\WhatsApp Image 2026-01-07 at 10.11.43 AM.jpeg" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Parent\Index.cshtml" />
+    <Content Include="Views\Admin\ManageStaff.cshtml" />
+    <Content Include="Views\Admin\ManageParents.cshtml" />
+    <Content Include="Views\Admin\ManageStudents.cshtml" />
+    <Content Include="Views\Admin\ManageGallery.cshtml" />
+    <Content Include="Views\Admin\ManageFees.cshtml" />
+    <Content Include="Views\Admin\ManageNotification.cshtml" />
+    <Content Include="Views\Admin\ManageFAQs.cshtml" />
+    <Content Include="Views\Admin\ManageFeedback.cshtml" />
+    <Content Include="Views\Staff\ManageProfile.cshtml" />
+    <Content Include="Views\Staff\ManageParents.cshtml" />
+    <Content Include="Views\Staff\ManageStudents.cshtml" />
+    <Content Include="Views\Staff\ManageStudentsAttendance.cshtml" />
+    <Content Include="Views\Staff\ManageTimeTable.cshtml" />
+    <Content Include="Views\Staff\UploadMaterial.cshtml" />
+    <Content Include="Views\Staff\ViewLeaveReport.cshtml" />
+    <Content Include="Views\Staff\PostExamSchedule.cshtml" />
+    <Content Include="Views\Staff\PostResult.cshtml" />
+    <Content Include="Views\Staff\ManageFAQs.cshtml" />
+    <Content Include="Views\Staff\ViewNotification.cshtml" />
+    <Content Include="Views\Parent\ViewGallery.cshtml" />
+    <Content Include="Views\Parent\PayFees.cshtml" />
+    <Content Include="Views\Parent\AskFAQs.cshtml" />
+    <Content Include="Views\Parent\ViewAttendance.cshtml" />
+    <Content Include="Views\Parent\ViewTimeTable.cshtml" />
+    <Content Include="Views\Parent\ViewMaterial.cshtml" />
+    <Content Include="Views\Parent\ViewExamSchedule.cshtml" />
+    <Content Include="Views\Parent\GiveLeaveReport.cshtml" />
+    <Content Include="Views\Parent\ViewResult.cshtml" />
+    <Content Include="Views\Parent\GetNotification.cshtml" />
+    <Content Include="Views\Parent\ViewFeedback.cshtml" />
+    <Content Include="Views\Parent\GiveFeedback.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\AskFAQ.cshtml" />
+    <Content Include="Views\Admin\CreateStaff.cshtml" />
+    <Content Include="Views\Admin\EditStaff.cshtml" />
+    <Content Include="Views\Admin\DetailsStaff.cshtml" />
+    <Content Include="Views\Admin\DeleteStaff.cshtml" />
+    <Content Include="Views\Admin\EditStudent.cshtml" />
+    <Content Include="Views\Admin\DetailsStudent.cshtml" />
+    <Content Include="Views\Admin\EditParent.cshtml" />
+    <Content Include="Views\Admin\DetailsParent.cshtml" />
+    <Content Include="Views\Admin\DeleteParent.cshtml" />
+    <Content Include="Views\Admin\CreateGallery.cshtml" />
+    <Content Include="Views\Admin\EditGallery.cshtml" />
+    <Content Include="Views\Admin\DetailsGallery.cshtml" />
+    <Content Include="Views\Admin\DeleteGallery.cshtml" />
+    <Content Include="Views\Admin\CreateFee.cshtml" />
+    <Content Include="Views\Admin\DeleteFee.cshtml" />
+    <Content Include="Views\Admin\AnswerFAQ.cshtml" />
+    <Content Include="Views\Parent\ViewResponses.cshtml" />
+    <Content Include="Views\Staff\CreateStudent.cshtml" />
+    <Content Include="Views\Staff\DetailsStudent.cshtml" />
+    <Content Include="Views\Staff\EditStudent.cshtml" />
+    <Content Include="Views\Staff\DeleteStudent.cshtml" />
+    <Content Include="Views\Staff\CreateParent.cshtml" />
+    <Content Include="Views\Staff\DetailsParent.cshtml" />
+    <Content Include="Views\Staff\EditParent.cshtml" />
+    <Content Include="Views\Staff\DeleteParent.cshtml" />
+    <Content Include="Views\Staff\ManageLeaveReports.cshtml" />
+    <Content Include="Views\Staff\AnswerFAQ.cshtml" />
+    <Content Include="Views\Admin\ViewParents.cshtml" />
+    <Content Include="Views\Admin\ViewFeeStatus.cshtml" />
+    <Content Include="Views\Parent\PaymentHistory.cshtml" />
+    <Content Include="Views\Parent\ViewLeaveReports.cshtml" />
+    <Content Include="Views\Admin\Reply.cshtml" />
+    <Content Include="Views\Admin\admin\AnswerFAQ.cshtml" />
+    <Content Include="Views\Admin\admin\CreateFee.cshtml" />
+    <Content Include="Views\Admin\admin\CreateGallery.cshtml" />
+    <Content Include="Views\Admin\admin\CreateStaff.cshtml" />
+    <Content Include="Views\Admin\admin\CreateStudent.cshtml" />
+    <Content Include="Views\Admin\admin\DeleteFee.cshtml" />
+    <Content Include="Views\Admin\admin\DeleteGallery.cshtml" />
+    <Content Include="Views\Admin\admin\DeleteParent.cshtml" />
+    <Content Include="Views\Admin\admin\DeleteStaff.cshtml" />
+    <Content Include="Views\Admin\admin\DeleteStudent.cshtml" />
+    <Content Include="Views\Admin\admin\DetailsGallery.cshtml" />
+    <Content Include="Views\Admin\admin\DetailsParent.cshtml" />
+    <Content Include="Views\Admin\admin\DetailsStaff.cshtml" />
+    <Content Include="Views\Admin\admin\DetailsStudent.cshtml" />
+    <Content Include="Views\Admin\admin\EditFee.cshtml" />
+    <Content Include="Views\Admin\admin\EditGallery.cshtml" />
+    <Content Include="Views\Admin\admin\EditParent.cshtml" />
+    <Content Include="Views\Admin\admin\EditStaff.cshtml" />
+    <Content Include="Views\Admin\admin\EditStudent.cshtml" />
+    <Content Include="Views\Admin\admin\Index.cshtml" />
+    <Content Include="Views\Admin\admin\ManageFAQs.cshtml" />
+    <Content Include="Views\Admin\admin\ManageFeedback.cshtml" />
+    <Content Include="Views\Admin\admin\ManageFees.cshtml" />
+    <Content Include="Views\Admin\admin\ManageGallery.cshtml" />
+    <Content Include="Views\Admin\admin\ManageNotification.cshtml" />
+    <Content Include="Views\Admin\admin\ManageParents.cshtml" />
+    <Content Include="Views\Admin\admin\ManageStaff.cshtml" />
+    <Content Include="Views\Admin\admin\ManageStudents.cshtml" />
+    <Content Include="Views\Admin\admin\Reply.cshtml" />
+    <Content Include="Views\Admin\admin\ViewFeeStatus.cshtml" />
+    <Content Include="Views\Admin\admin\ViewParents.cshtml" />
+    <Content Include="Views\Staff\DeleteMaterial.cshtml" />
+    <Content Include="Views\Staff\edittimetable.cshtml" />
+    <Content Include="Views\Staff\viewtimetable.cshtml" />
+    <Content Include="Views\Staff\deletetimetable.cshtml" />
+    <Content Include="Views\AdminAccount\Login.cshtml" />
+    <Content Include="Views\Account\LoginSelection.cshtml" />
+    <Content Include="Views\Parent\InitiatePayment.cshtml" />
+    <Content Include="Views\Admin\AddOfflineFee.cshtml" />
+    <Content Include="Views\Home\MyQuestions.cshtml" />
+    <Content Include="Views\Parent\AllFeedback.cshtml" />
+    <Content Include="Views\Parent\ManageProfile.cshtml" />
+    <Content Include="Views\Home\OurStaff.cshtml" />
+    <Content Include="Views\Admin\FeeReport.cshtml" />
+    <Content Include="Views\Staff\AttendanceReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\uploads\Gallery\" />
+    <Folder Include="Content\uploads\LeaveReports\" />
+    <Folder Include="Content\uploads\Materials\" />
+    <Folder Include="Content\uploads\Receipts\" />
+    <Folder Include="Content\uploads\staff\" />
+    <Folder Include="Content\uploads\StudyMaterials\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55295</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44356/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,175 @@
+﻿
+@model SchoolManagementSystem.Models.TimeTable
+@{
+    ViewBag.Title = "Edit TimeTable Entry";
+}
+
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .btn-theme {
+        background-color: #2d5f5d;
+        color: white;
+        border: none;
+    }
+
+        .btn-theme:hover {
+            background-color: #234b49;
+            color: white;
+        }
+
+    h5, h6 {
+        color: #ff6b6b;
+    }
+</style>
+
+<div class="d-flex justify-content-between align-items-center mb-4 profile mx-10">
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-pencil-square"></i> Edit TimeTable Entry
+        </h4>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="card-header bg-black text-white">
+
+
+                        <small>Class: <strong>@ViewBag.ClassAssigned</strong></small>
+                    </div>
+                    <div class="card-body">
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <i class="bi bi-check-circle-fill"></i> @TempData["Message"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <i class="bi bi-exclamation-triangle-fill"></i> @TempData["Error"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+
+                        @using (Html.BeginForm("EditTimeTable", "Staff", FormMethod.Post, new { @class = "needs-validation" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(m => m.TimeTableId)
+
+                            <div class="mb-3">
+                                @Html.LabelFor(m => m.SubjectName, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.SubjectName, new { @class = "form-control", placeholder = "e.g., Mathematics", required = "required" })
+                                @Html.ValidationMessageFor(m => m.SubjectName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="mb-3">
+                                @Html.LabelFor(m => m.TeacherName, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.TeacherName, new { @class = "form-control", placeholder = "e.g., Mr. Kumar", required = "required" })
+                                @Html.ValidationMessageFor(m => m.TeacherName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="mb-3">
+                                @Html.LabelFor(m => m.WeekDay, new { @class = "form-label" })
+                                @Html.DropDownListFor(m => m.WeekDay, (SelectList)ViewBag.WeekDays, "Select Day", new { @class = "form-select", required = "required" })
+                                @Html.ValidationMessageFor(m => m.WeekDay, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    @Html.LabelFor(m => m.StartTime, new { @class = "form-label" })
+                                    @Html.TextBoxFor(m => m.StartTime, "{0:HH:mm}", new { type = "time", @class = "form-control", onchange = "calculateDuration()", id = "StartTime", required = "required" })
+                                    @Html.ValidationMessageFor(m => m.StartTime, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    @Html.LabelFor(m => m.EndTime, new { @class = "form-label" })
+                                    @Html.TextBoxFor(m => m.EndTime, "{0:HH:mm}", new { type = "time", @class = "form-control", onchange = "calculateDuration()", id = "EndTime", required = "required" })
+                                    @Html.ValidationMessageFor(m => m.EndTime, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                @Html.LabelFor(m => m.DurationInMinutes, "Duration (Minutes)", new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.DurationInMinutes, new { @class = "form-control", @readonly = "readonly", id = "DurationInMinutes" })
+                            </div>
+
+                            <div class="d-flex gap-2 justify-content-end">
+                                <a href="@Url.Action("ManageTimeTable", "Staff")" class="btn btn-secondary">
+                                    <i class="bi"></i> Cancel
+                                </a>
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="bi"></i> Update
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function calculateDuration() {
+            var start = document.getElementById("StartTime").value;
+            var end = document.getElementById("EndTime").value;
+
+            if (start && end) {
+                var startTime = new Date("1970-01-01T" + start + ":00");
+                var endTime = new Date("1970-01-01T" + end + ":00");
+                var diff = (endTime - startTime) / 60000; // minutes
+
+                if (diff > 0) {
+                    document.getElementById("DurationInMinutes").value = diff;
+                } else {
+                    document.getElementById("DurationInMinutes").value = 0;
+                    alert("End time must be greater than start time!");
+                }
+            }
+        }
+
+        // Calculate duration on page load
+        window.onload = function () {
+            calculateDuration();
+        };
+    </script>
+    <style>
+        .profile-wrapper {
+            margin: 30px;
+            padding: 25px;
+        }
+
+        .profile {
+            margin: 10px 30px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .badge {
+            padding: 0.5em 0.75em;
+            font-size: 0.875rem;
+        }
+    </style>

@@ -1,0 +1,696 @@
+﻿
+
+
+
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500hffjitug;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="font">
+                <span class="hero-welcome">Welcome to </span><span class="hero-brand">Smart Eduverse</span>
+            </h1>
+            <p>
+                "A place to learn, grow, and succeed, where we grow together through knowledge with smart systems for a brighter future."
+            </p>
+            <div class="hero-buttons">
+                <a href="/Account/Login" class="btn btn-hero-login">Login</a>
+                <a href="/Home/About" class="btn btn-outline-light">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="py-5 bg-light">
+    <div class="container-fluid py-5 custom-padding">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Comprehensive School Management</h2>
+            <p class="lead text-muted">Everything you need in one integrated platform</p>
+        </div>
+        <div class="row g-4">
+            <!-- Admin Control - Teal -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon-wrap" style="background: rgba(45,95,93,0.12);">
+                            <i class="bi bi-person-gear" style="color: #2d5f5d;"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Admin Control</h5>
+                        <p class="text-muted small mb-0">Complete administrative control over staff, students, fees, and notifications</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Portal - Green -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon-wrap" style="background: rgba(16,185,129,0.12);">
+                            <i class="bi bi-people-fill" style="color: #10b981;"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Staff Portal</h5>
+                        <p class="text-muted small mb-0">Manage attendance, timetables, exam schedules, and student materials efficiently</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent Access - Orange -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon-wrap" style="background: rgba(245,158,11,0.12);">
+                            <i class="bi bi-person-heart" style="color: #f59e0b;"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Parent Access</h5>
+                        <p class="text-muted small mb-0">Track attendance, view results, pay fees, and stay connected with your child's progress</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication - Blue -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon-wrap" style="background: rgba(93,173,226,0.12);">
+                            <i class="bi bi-chat-dots-fill" style="color: #5dade2;"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Communication</h5>
+                        <p class="text-muted small mb-0">Real-time notifications, feedback system, and FAQ support for all users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- VISION STATEMENTS SECTION -->
+<section class="vision-section">
+
+    <!-- Background math/science symbols -->
+    <div class="vision-bg-symbols" aria-hidden="true">
+        <span>∑</span><span>π</span><span>∫</span><span>≠</span>
+        <span>√</span><span>χ</span><span>φ</span><span>Δ</span>
+        <span>sin</span><span>α</span><span>β</span><span>∞</span>
+    </div>
+
+    <!-- Left column: heading + paragraph + stats -->
+    <div class="vision-left">
+        <div class="vision-content">
+            <h2> OUR SCHOOL IN NUMBERS</h2>
+            <p>"our mission is to educate students, develop their skills and talents, help them succeed in a changing world, and encourage respect for themselves and others."</p>
+        </div>
+
+        <div class="vision-stats">
+
+
+
+            <div class="vision-stat-circle">
+                <div class="vision-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 8.18V17l7 3.82 7-3.82v-5.82L12 17 5 11.18z" /></svg>
+                </div>
+                <div class="vision-number">1000+</div>
+                <div class="vision-label">Student</div>
+            </div>
+
+            <div class="vision-stat-circle">
+                <div class="vision-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z" /></svg>
+                </div>
+                <div class="vision-number">50+</div>
+                <div class="vision-label">Qualified Teacher</div>
+            </div>
+
+            <div class="vision-stat-circle">
+                <div class="vision-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7v2h20V7L12 2zm-7 9v7H3v2h18v-2h-2v-7h-2v7h-2v-7h-2v7h-2v-7H9v7H7v-7H5z" /></svg>
+                </div>
+                <div class="vision-number">30+</div>
+                <div class="vision-label">Classes</div>
+            </div>
+
+            <div class="vision-stat-circle">
+                <div class="vision-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z" /></svg>
+                </div>
+                <div class="vision-number">100%</div>
+                <div class="vision-label">Success Rate</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Student photo — flush to right edge -->
+    <div class="vision-student">
+        <img src="/Content/images/ChatGPT Image Mar 25, 2026, 04_44_28 PM.png" alt="Student with books" />
+    </div>
+
+</section>
+
+<style>
+    /* ===== VISION STATEMENTS ===== */
+  
+
+    /* Faint background symbols */
+    .vision-bg-symbols {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        opacity: 0.15;
+    }
+
+        .vision-bg-symbols span {
+            position: absolute;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: #ffffff;
+            user-select: none;
+        }
+
+    .vision-bg-symbols span:nth-child(1)  { top: 5%;  left: 2%;  font-size: 38px; }
+    .vision-bg-symbols span:nth-child(2)  { top: 15%; left: 8%;  font-size: 26px; }
+    .vision-bg-symbols span:nth-child(3)  { top: 55%; left: 3%;  font-size: 44px; }
+    .vision-bg-symbols span:nth-child(4)  { top: 75%; left: 12%; font-size: 22px; }
+    .vision-bg-symbols span:nth-child(5)  { top: 88%; left: 5%;  font-size: 30px; }
+    .vision-bg-symbols span:nth-child(6)  { top: 10%; left: 38%; font-size: 20px; }
+    .vision-bg-symbols span:nth-child(7)  { top: 80%; left: 42%; font-size: 26px; }
+    .vision-bg-symbols span:nth-child(8)  { top: 3%;  right: 36%; font-size: 34px; }
+    .vision-bg-symbols span:nth-child(9)  { top: 90%; right: 28%; font-size: 20px; }
+    .vision-bg-symbols span:nth-child(10) { top: 40%; right: 2%;  font-size: 28px; }
+    .vision-bg-symbols span:nth-child(11) { top: 70%; right: 5%;  font-size: 36px; }
+    .vision-bg-symbols span:nth-child(12) { top: 20%; right: 10%; font-size: 22px; }
+
+    /* Left side */
+
+
+
+    .vision-content h2 {
+        font-family: 'Lora', serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #ff6b6b;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .vision-content p {
+        font-size: 0.95rem;
+        font-weight: 400;
+        line-height: 1.85;
+        color: rgba(255, 255, 255, 0.90);
+        max-width: 547px;
+    }
+
+    /* Stats row */
+    .vision-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .vision-stats {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin-top: 20px; /* આ 0 કરો */
+        flex-wrap: wrap;
+    }
+
+
+
+    .vision-stat-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(6px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        padding: 12px;
+        cursor: default;
+    }
+
+        .vision-stat-circle:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
+        }
+
+    .vision-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #ff6b6b;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .vision-icon svg {
+        width: 17px;
+        height: 17px;
+        fill: #ffffff;
+    }
+
+    .vision-number {
+        font-family: 'Lora', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1;
+    }
+
+    .vision-label {
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.80);
+        margin-top: 4px;
+        line-height: 1.3;
+    }
+    .vision-section {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        background-color: #2d5f5d;
+
+        background: linear-gradient( to bottom,
+        rgba(45, 95, 93, 0.93) 0%,
+        rgba(45, 95, 93, 0.92) 50%, 
+        rgba(45, 95, 93, 0.88) 80%, 
+        rgba(45, 95, 93, 0.93) 100% );
+
+        display: flex;
+        flex-direction: row;
+        align-items: stretch; /* ← center થી stretch કરો */
+        overflow: hidden;
+        padding: 0 66px;
+        gap: 30px;
+    }
+
+    .vision-left {
+        position: relative;
+        z-index: 2;
+        flex: 1.1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 500px; /* explicit height */
+        min-height: 500px;
+    }
+
+    .vision-student {
+        position: relative;
+        flex: 0.9;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        height: 100%; /* આ add કરો */
+        z-index: 3;
+    }
+
+    
+        .vision-student img {
+            max-height: 480px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+    /* Responsive */
+    @@media (max-width: 991px) {
+        .vision-section {
+            padding: 50px 30px;
+        }
+        .vision-left {
+            max-width: 60%;
+        }
+        .vision-stat-circle {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    @@media (max-width: 700px) {
+        .vision-section {
+            flex-direction: column;
+            padding: 40px 20px 260px; /* bottom padding makes room for student */
+        }
+        .vision-left {
+            max-width: 100%;
+        }
+        .vision-student {
+            height: 240px;
+            width: 100%;
+            justify-content: center;
+        }
+        .vision-student img {
+            height: 100%;
+            width: auto;
+        }
+        .vision-stats {
+            justify-content: center;
+        }
+    }
+</style>
+
+
+
+
+
+<!-- ACTIVITIES SECTION -->
+<section class="activities-section py-5 bg-light">
+    <div class="container-fluid py-5 custom-paddingg">
+        <div class="section-header">
+            <h2>Activities</h2>
+            <p class="lead text-muted">Smart Eduverse School offers diverse activities, including sports, arts, cultural events, and educational trips, fostering creativity, teamwork, and leadership skills for students' overall growth and development beyond academics.</p>
+        </div>
+        <div class="row g-4 bg-white rounded-4 p-4 shadow-sm">
+            <div class="col-md-6 col-lg-2-4">
+                <div class="activity-card">
+                    <h5>Morning Assembly</h5>
+                    <p class="text-muted small mb-0">Includes prayer, national anthem, news reading, and thought of the day to instill discipline and motivation.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2-4">
+                <div class="activity-card">
+                    <h5>Sports & Physical Activities</h5>
+                    <p class="text-muted small mb-0">Games, yoga, and exercise sessions to promote physical fitness and teamwork.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2-4">
+                <div class="activity-card">
+                    <h5>Cultural Programs & Events</h5>
+                    <p class="text-muted small mb-0">Celebrations of festivals, annual day, and talent shows to encourage creativity and participation.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2-4">
+                <div class="activity-card">
+                    <h5>School Trips & Outings</h5>
+                    <p class="text-muted small mb-0">Visits to museums, historical sites, and science centers for experiential learning.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2-4">
+                <div class="activity-card">
+                    <h5>Debates & Competitions</h5>
+                    <p class="text-muted small mb-0">Speech contests, quiz competitions, and essay writing to develop communication and critical thinking skills.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CTA SECTION -->
+<section class="bg-light cta-section">
+    <div class="container-fluid py-5">
+        <div class="row align-items-center px-5">
+            <div class="col-lg-8">
+                <h2 class="display-6 fw-bold mb-3">Ready to Get Started?</h2>
+                <p class="lead text-muted mb-0">Join our community and experience seamless school management</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="@Url.Action("Login","Account")" class="btn btn-cta-coral btn-lg px-5 py-3 shadow">
+                    Login Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    h1, h2, h3, h4, h5, .font {
+        font-family: 'Lora', serif;
+        font-weight: 700;
+    }
+
+    .number {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero-section {
+        height: 80vh;
+        background: url('/Content/images/Hero.jpg') center center / cover no-repeat;
+        position: relative;
+    }
+
+    .hero-overlay {
+        height: 100%;
+        background: linear-gradient( to bottom, rgba(45, 95, 93, 0.85) 0%, rgba(45, 95, 93, 0.78) 35%, rgba(45, 95, 93, 0.70) 60%, rgba(45, 95, 93, 0.55) 75%, rgba(255, 255, 255, 0.15) 90%, rgba(255, 255, 255, 0.25) 100% );
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-content {
+        max-width: 700px;
+        margin-left: 200px;
+        margin-top: 40px;
+        color: white;
+    }
+
+    .hero-welcome {
+        color: white;
+        font-size: 40px;
+    }
+
+    .hero-brand {
+        color: #ff6b6b;
+        font-size: 50px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 20px 0 30px;
+        opacity: 0.9;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .btn-hero-login {
+        background: #ff6b6b;
+        color: white;
+        border: 2px solid #ff6b6b;
+        padding: 12px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+        .btn-hero-login:hover {
+            background: #e05555;
+            border-color: #e05555;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255,107,107,0.45);
+        }
+
+    .btn-outline-light {
+        padding: 12px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    /* ===== FEATURE CARDS ===== */
+    .custom-padding {
+        padding-left: 66px;
+        padding-right: 66px;
+    }
+
+    .custom-paddingg {
+        padding-left: 75px;
+        padding-right: 75px;
+    }
+
+    .feature-card {
+        transition: all 0.3s ease;
+        border-radius: 14px !important;
+    }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.15) !important;
+        }
+
+    .feature-icon-wrap {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 36px;
+    }
+
+
+
+    /* ===== ACTIVITIES ===== */
+    .activities-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .activities-section .container {
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+            padding-bottom: 10px;
+        }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+    .activity-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 30px 20px;
+        background-color: #ffffff;
+        text-align: center;
+        height: 100%;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #ff6b6b;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .activity-card:hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 8px 24px rgba(255,107,107,0.15);
+            transform: translateY(-4px);
+        }
+
+        .activity-card h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+    .col-lg-2-4 {
+        flex: 0 0 auto;
+        width: 20%;
+    }
+
+    @@media (max-width: 991px) {
+        .col-lg-2-4 {
+            width: 50%;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .col-lg-2-4 {
+            width: 100%;
+        }
+    }
+
+    /* ===== CTA ===== */
+    .btn-cta-coral {
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        transition: all 0.3s;
+    }
+
+        .btn-cta-coral:hover {
+            background: #e05555;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(255,107,107,0.40);
+        }
+
+    .cta-section {
+        padding-bottom: 40px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @@media (max-width: 768px) {
+        .hero-content {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                margin: 16px 0 24px;
+            }
+
+        .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+

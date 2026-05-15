@@ -1,0 +1,209 @@
+﻿@model SchoolManagementSystem.Models.LeaveReport
+@{
+    ViewBag.Title = "Give Leave Report";
+}
+
+<div class="mb-4 mt-3 text-primary fw-bold profile">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 style="color: #2d5f5d;"><i class="bi bi-pencil-square"></i> Give Leave Report</h2>
+        @* ✅ BUTTON TO VIEW LEAVE REPORTS *@
+        <a href="@Url.Action("ViewLeaveReports", "Parent")" class="btn text-black" style="background-color: #B2D3C2;">
+            <i class="bi bi-eye"></i> View Leave Reports
+        </a>
+    </div>
+</div>
+
+@* ✅ SUCCESS MESSAGE DISPLAY *@
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle-fill"></i>
+        @TempData["Message"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@* ❌ ERROR MESSAGE DISPLAY *@
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+    @using (Html.BeginForm("GiveLeaveReport", "Parent", FormMethod.Post, new { enctype = "multipart/form-data", id = "leaveReportForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title)
+            <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.Title, new
+                {
+                @class = "form-control",
+                    required = "required",
+                    placeholder = "Enter Title",
+                    maxlength = "50"
+                })
+            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Reason)
+            <span class="required-star">*</span>
+            @Html.TextAreaFor(m => m.Reason, new
+    {
+    @class = "form-control",
+    required = "required",
+    rows = 3,
+    placeholder = "Enter Reason for Leave",
+    maxlength = "500"
+    })
+            @Html.ValidationMessageFor(m => m.Reason, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.StartDate, "Start Date")
+            <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new
+            {
+                @class = "form-control",
+                type = "date",
+                required = "required",
+                min = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")
+            })
+            @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.EndDate, "End Date")
+            <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new
+            {
+                @class = "form-control",
+                type = "date",
+                required = "required",
+                min = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")
+            })
+            @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label>
+                <i class="bi bi-file-earmark-arrow-up"></i> Attachment (optional)
+            </label>
+            <input type="file"
+                   name="Attachment"
+                   id="fileAttachment"
+                   class="form-control"
+                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                   onchange="validateFile(this)" />
+            <small class="text-muted">Max file size: 5 MB | Allowed: PDF, DOC, DOCX, JPG, PNG</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            <i class="bi"></i> Submit
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="resetLeaveReportForm()">
+            <i class="bi bi-x-circle"></i> Cancel
+        </button>
+    }
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .required-star {
+        color: red;
+        font-weight: bold;
+        margin-left: 3px;
+    }
+
+    .btn-green {
+        background-color: #2d5f5d;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+<script>
+    function validateFile(input) {
+        // If no file selected, it's optional so just return
+        if (!input.files || input.files.length === 0) {
+            return true;
+        }
+
+        const file = input.files[0];
+
+        // ✅ 1. CHECK FILE SIZE (Maximum 5 MB)
+        const maxSize = 5 * 1024 * 1024; // 5 MB in bytes
+        if (file.size > maxSize) {
+            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+            alert(`File size is ${fileSizeMB} MB. Maximum allowed size is 5 MB. Please select a smaller file.`);
+            input.value = '';
+            return false;
+        }
+
+        // ✅ 2. CHECK FILE NAME LENGTH (Maximum 100 characters)
+        if (file.name.length > 100) {
+            alert('File name is too long. Please rename the file to less than 100 characters.');
+            input.value = '';
+            return false;
+        }
+
+        // ✅ 3. CHECK FILE EXTENSION
+        const allowedExtensions = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png'];
+        const fileExtension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+
+        if (!allowedExtensions.includes(fileExtension)) {
+            alert('Invalid file type! Only PDF, DOC, DOCX, JPG, and PNG files are allowed.');
+            input.value = '';
+            return false;
+        }
+
+        return true;
+    }
+    // Reset leave report form function
+    function resetLeaveReportForm() {
+        var form = document.getElementById("leaveReportForm");
+
+        // Form reset
+        form.reset();
+
+        // File input ko clear karo
+        document.getElementById("fileAttachment").value = "";
+
+        // Validation messages clear karo
+        var validationMessages = form.querySelectorAll('.text-danger');
+        validationMessages.forEach(function (msg) {
+            msg.innerHTML = "";
+        });
+
+        // Validation classes remove karo (if any)
+        form.classList.remove('was-validated');
+    }
+
+    document.getElementById("leaveReportForm").addEventListener("submit", function (e) {
+        var startDate = document.querySelector('[name="StartDate"]').value;
+        var endDate = document.querySelector('[name="EndDate"]').value;
+
+        if (startDate && endDate) {
+            if (new Date(endDate) < new Date(startDate)) {
+                e.preventDefault();
+                alert("End Date cannot be less than Start Date.");
+            }
+        }
+    });
+</script>

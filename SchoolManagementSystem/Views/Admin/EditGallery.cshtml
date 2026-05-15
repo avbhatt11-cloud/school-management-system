@@ -1,0 +1,105 @@
+﻿@model SchoolManagementSystem.Models.Gallery
+@{
+    ViewBag.Title = "Edit Photo";
+}
+<div class="container mt-4 text-primary fw-bold profile">
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-image me-2 "></i> Edit Photo
+    </h2>
+</div>
+<div class="row mt-4 g-6 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    @using (Html.BeginForm("EditGallery", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id", Model.Id)
+
+        <div class="form-group mb-3">
+            @Html.Label("Photo Name")
+            @Html.TextBoxFor(m => m.PhotoName,
+     new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(m => m.PhotoName,
+                "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Current Photo</label><br />
+            @if (!string.IsNullOrEmpty(Model.PhotoPath))
+            {
+                <img src="@Url.Content(Model.PhotoPath)"
+                     alt="@Model.PhotoName"
+                     width="120" />
+            }
+            else
+            {
+                <p class="text-danger">No Image Available</p>
+            }
+
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.Label("Upload New Photo (optional)")
+            <input type="file" name="PhotoFile"
+                   class="form-control"
+                   accept=".jpg,.jpeg,.png,.gif" />
+
+            @Html.ValidationMessage("PhotoFile", "", new { @class = "text-danger" })
+
+        </div>
+
+        <button type="submit" class="btn btn-custom-green">Update</button>
+        @Html.ActionLink("Cancel", "ManageGallery", null, new { @class = "btn btn-secondary" })
+    }
+</div>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        document.querySelector('input[type=file]').addEventListener('change', function () {
+
+            if (this.files[0].size > 20971520) {
+                alert("Max 20MB allowed");
+                this.value = "";
+            }
+
+        });
+    </script>
+
+    <style>
+        .profile-wrapper {
+            margin: 30px;
+            padding: 25px;
+        }
+
+        .profile {
+            margin: 10px 30px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .badge {
+            padding: 0.5em 0.75em;
+            font-size: 0.875rem;
+        }
+        .text-green {
+            color: #2d5f5d !important;
+        }
+
+        .btn-custom-green {
+            background-color: #2d5f5d !important;
+            color: white !important;
+            border: 1px solid #2d5f5d !important;
+        }
+
+            .btn-custom-green:hover {
+                background-color: #2d5f5d !important;
+                border-color: #2d5f5d !important;
+                color: white !important;
+            }
+
+    </style>
+

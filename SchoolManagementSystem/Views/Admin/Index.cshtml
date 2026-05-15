@@ -1,0 +1,506 @@
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d5f5d;
+            --secondary-color: #ff6b6b;
+            --success-color: #10b981;
+            --warning-color: #ffa726;
+            --danger-color: #ef4444;
+            --info-color: #5dade2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f0 100%);
+            min-height: 100vh;
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+
+        .dashboard-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f0 100%);
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            padding: 1rem 0;
+            margin-top: 0;
+        }
+
+        .welcome-container {
+            background: linear-gradient(135deg, #2d5f5d 0%, #1e4644 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            margin-top: 0;
+            box-shadow: 0 10px 30px rgba(45, 95, 93, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .welcome-banner {
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-banner h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .welcome-banner h1 i {
+            font-size: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .welcome-banner h3 {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(40%, -40%);
+        }
+
+        .stat-card:nth-child(1) {
+            border-left-color: #2d5f5d;
+        }
+
+        .stat-card:nth-child(1)::before {
+            background: #2d5f5d;
+        }
+
+        .stat-card:nth-child(2) {
+            border-left-color: #ff6b6b;
+        }
+
+        .stat-card:nth-child(2)::before {
+            background: #ff6b6b;
+        }
+
+        .stat-card:nth-child(3) {
+            border-left-color: #ffa726;
+        }
+
+        .stat-card:nth-child(3)::before {
+            background: #ffa726;
+        }
+
+        .stat-card:nth-child(4) {
+            border-left-color: #5dade2;
+        }
+
+        .stat-card:nth-child(4)::before {
+            background: #5dade2;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: white;
+        }
+
+        .stat-card:nth-child(1) .stat-icon {
+            background: #2d5f5d;
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: #ff6b6b;
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: #ffa726;
+        }
+
+        .stat-card:nth-child(4) .stat-icon {
+            background: #5dade2;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: #2d5f5d;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .chart-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-header h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .chart-header p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        #feeCollectionChart {
+            max-height: 400px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            min-height: 200px;
+        }
+
+        .info-card h4 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            background: var(--primary-color) !important;
+        }
+
+        .text-primary {
+            color: #2d5f5d !important;
+        }
+
+        .badge.bg-info {
+            background-color: #5dade2 !important;
+        }
+
+        .badge.bg-primary {
+            background-color: #2d5f5d !important;
+        }
+
+        .px-4 {
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        @@media (max-width: 768px) {
+            .welcome-banner h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-banner h3 {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-container {
+                padding: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-bg">
+        <div class="dashboard-container">
+            <!-- Welcome Section -->
+            <div class="px-4 mb-4">
+                <div class="welcome-container">
+                    <div class="welcome-banner">
+                        <h1>
+                            <i class="bi bi-speedometer2"></i>
+                            Admin Dashboard
+                        </h1>
+                        <h3>Welcome, @ViewBag.Username!</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="px-4 mb-4">
+                <h2 class="section-title">
+                    <i class="bi bi-graph-up"></i>
+                    System Overview
+                </h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="stat-number">@ViewBag.TotalStaff</div>
+                        <div class="stat-label">Total Active Staff</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-person-hearts"></i>
+                        </div>
+                        <div class="stat-number">@ViewBag.TotalParents</div>
+                        <div class="stat-label">Total Active Parents</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-currency-rupee"></i>
+                        </div>
+                        <div class="stat-number">₹@ViewBag.FeeCollection.ToString("N0")</div>
+                        <div class="stat-label">Fee Collection</div>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <!-- Fee Collection Chart -->
+            <div class="px-4 mb-4">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>Standard-wise Fee Collection</h4>
+                        <p>Total fees collected per standard for current year</p>
+                    </div>
+                    <canvas id="feeCollectionChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Staff Distribution & Pending Tasks -->
+            <div class="px-4 mb-4">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="info-card">
+                            <h4><i class="bi bi-people text-primary"></i> Staff Distribution</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Active Staff</span>
+                                    <strong class="text-primary">@ViewBag.IsActiveStaff</strong>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    <div class="progress-bar" style="width: @(ViewBag.TotalStaff > 0 ? (ViewBag.IsActiveStaff * 100.0 / ViewBag.TotalStaff).ToString("F0") +"%" : "0%");"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Inactive Staff</span>
+                                    <strong style="color: #ff6b6b;">@ViewBag.InActiveStaff</strong>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    <div class="progress-bar" style="width: @(ViewBag.TotalStaff > 0 ? (ViewBag.InActiveStaff * 100.0 / ViewBag.TotalStaff).ToString("F0")+"%" : "0%"); background: #ff6b6b !important;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="info-card">
+                            <h4><i class="bi bi-clipboard-check text-success"></i> Pending Tasks</h4>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span><i class="bi bi-chat-dots me-2 text-info"></i>Pending Feedback</span>
+                                <strong class="badge bg-info">@ViewBag.PendingFeedback</strong>
+                            </div>
+                        <div class="mt-1">
+                            <div class="d-flex justify-content-between ">
+                                <span><i class="bi bi-cash-coin me-2 text-warning"></i>Pending Fees Students</span>
+                                <strong class="badge" style="background-color:#ffa726; color:white;">@ViewBag.PendingFeesCount</strong>
+                            </div>
+
+                        <div> 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Standard-wise Fee Collection Chart - Simple Line Graph
+        var ctx = document.getElementById('feeCollectionChart').getContext('2d');
+
+        var standardData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.StandardFees));
+        var standards = standardData.map(d => d.Standard);
+        var amounts = standardData.map(d => d.TotalAmount);
+
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: standards,
+                datasets: [{
+                    label: 'Fees Collected',
+                    data: amounts,
+                    borderColor: '#2d5f5d',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#2d5f5d',
+                    pointBorderColor: '#2d5f5d',
+                    pointRadius: 4,
+                    fill: false,
+                    tension: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                animation: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                if (value >= 100000) {
+                                    return '₹' + (value / 100000) + 'L';
+                                } else if (value >= 1000) {
+                                    return '₹' + (value / 1000) + 'K';
+                                }
+                                return '₹' + value;
+                            },
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: '#e5e7eb',
+                            drawBorder: true
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 11
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    mode: null
+                },
+                hover: {
+                    mode: null
+                }
+            }
+        });
+    </script>
+</body>
+</html>

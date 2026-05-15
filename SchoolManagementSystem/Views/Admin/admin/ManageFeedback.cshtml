@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Feedback>
+
+@{
+    ViewBag.Title = "Manage Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Admin Layout
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">📋 Manage Feedback</h2>
+
+    <div class="card shadow-sm p-4">
+        <table class="table table-bordered table-hover text-center">
+            <thead style="background-color:#2f294c; color:white;">
+                <tr>
+                    <th>#</th>
+                    <th>Parent</th>
+                    <th>Feedback</th>
+                    <th>Reply</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    int i = 1;
+                    foreach (var f in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@f.Parent.ParentFirstName @f.Parent.ParentLastName</td>
+                            <td>@f.Message</td>
+                            <td>
+                                @(string.IsNullOrEmpty(f.Reply) ? "⏳ Pending" : f.Reply)
+                            </td>
+                            <td>
+                                @Html.ActionLink("✍️ Reply", "Reply", new { id = f.FeedbackId },
+                                    new { @class = "btn btn-sm btn-success" })
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">No feedback available</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

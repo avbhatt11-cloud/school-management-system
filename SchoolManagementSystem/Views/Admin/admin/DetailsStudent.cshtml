@@ -1,0 +1,21 @@
+﻿@model SchoolManagementSystem.Models.Student
+@{
+    ViewBag.Title = "Student Details";
+}
+<div class="container mt-4">
+    <h2 class="text-info">Student Details</h2>
+    <hr />
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p><strong>Name:</strong> @Model.FirstName @Model.MiddleName @Model.LastName</p>
+            <p><strong>Gender:</strong> @Model.Gender</p>
+            <p><strong>Class:</strong> @Model.ClassName</p>
+            <p><strong>Parent Name:</strong> @Model.ParentFirstName @Model.ParentLastName</p>
+            <p><strong>Contact:</strong> @Model.ContactNumber</p>
+            <p><strong>Address:</strong> @Model.Address</p>
+            <p><strong>Created At:</strong> @Model.CreatedAt</p>
+        </div>
+    </div>
+    <br />
+    @Html.ActionLink("Back to List", "ManageStudents", null, new { @class = "btn btn-secondary" })
+</div>

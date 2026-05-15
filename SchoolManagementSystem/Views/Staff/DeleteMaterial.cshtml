@@ -1,0 +1,64 @@
+﻿// POST: DeleteMaterial
+[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult DeleteMaterial(int id)
+{
+    // Check if user is staff
+    if (!IsStaff())
+        return RedirectToLogin();
+
+    // Get staff's assigned class and ID from session
+    string classAssigned = Session["ClassAssigned"]?.ToString();
+    int staffId = Convert.ToInt32(Session["StaffId"]);
+
+    // Find the material in database
+    var material = db.Materials.Find(id);
+
+    // Check if material exists
+    if (material == null)
+    {
+        TempData["Error"] = "Material not found.";
+        return RedirectToAction("UploadMaterial");
+    }
+
+    // Security check: Staff can only delete materials from their assigned class
+    if (material.ClassName != classAssigned)
+    {
+        TempData["Error"] = "You can only delete materials from your assigned class.";
+        return RedirectToAction("UploadMaterial");
+    }
+
+    // Security check: Staff can only delete their own uploads
+    if (material.StaffId != staffId)
+    {
+        TempData["Error"] = "You can only delete your own materials.";
+        return RedirectToAction("UploadMaterial");
+    }
+
+    try
+    {
+        // Get physical file path
+        var physicalPath = Server.MapPath(material.FilePath);
+
+        // Delete physical file from server if it exists
+        if (System.IO.File.Exists(physicalPath))
+        {
+            System.IO.File.Delete(physicalPath);
+        }
+
+        // Delete record from database
+        db.Materials.Remove(material);
+        db.SaveChanges();
+
+        TempData["Success"] = "Material deleted successfully!";
+    }
+    catch (Exception ex)
+    {
+        // Log error (optional)
+        // Logger.Log(ex);
+
+        TempData["Error"] = "Error deleting material. Please try again.";
+    }
+
+    return RedirectToAction("UploadMaterial");
+}

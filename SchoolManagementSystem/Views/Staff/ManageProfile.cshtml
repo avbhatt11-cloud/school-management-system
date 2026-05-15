@@ -1,0 +1,308 @@
+﻿@model SchoolManagementSystem.Models.Staff
+@{
+    ViewBag.Title = "Manage Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="d-flex justify-content-between align-items-center mb-4 profile mx-10">
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-person-gear me-1"></i>
+
+        Manage Profile
+    </h2>
+
+
+        <a href="@Url.Action("Index","Staff")" class="btn btn-outline-secondary">Back</a>
+
+</div>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"></button>
+    </div>
+}
+
+
+@using (Html.BeginForm("ManageProfile", "Staff", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id) <!-- Hidden ID -->
+    @Html.HiddenFor(m => m.Username)
+
+
+    <div class="row mt-3 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+        <!-- Username -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Username, new { @class = "form-label fw-bold" })
+                @if (Session["Role"].ToString() == "Staff")
+                {
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter username" })
+                }
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <!-- First Name -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.FirstName, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", maxlength = "20" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <!-- Last Name -->
+        <div class="mb-1">
+            @Html.LabelFor(m => m.LastName, new { @class = "form-label fw-bold" })
+            <span class="text-danger">*</span>
+
+            @Html.TextBoxFor(m => m.LastName, new
+            {
+                @class = "form-control",
+                maxlength = "20"
+            })
+
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+        </div>
+
+
+
+        <!-- Email -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Contact No -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ContactNo, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control", maxlength = "10" })
+                @Html.ValidationMessageFor(m => m.ContactNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Gender, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-select" })
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Address -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Address, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", maxlength = "100" })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <!-- Designation -->
+        <div class="col-md-4 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Designation, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Designation, new { @class = "form-control", maxlength = "20" })
+                @Html.ValidationMessageFor(m => m.Designation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="col-md-6 col-sm-12">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.Education, new { @class = "form-label fw-bold" })
+                <span class="text-danger">*</span>
+                @Html.TextBoxFor(m => m.Education, new { @class = "form-control", maxlength = "20" })
+                @Html.ValidationMessageFor(m => m.Education, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Class Assigned -->
+
+        <div class="col-md-4 col-sm-6">
+            <div class="mb-1">
+                @Html.LabelFor(m => m.ClassAssigned, new { @class = "form-label fw-bold" })
+                @if (Session["Role"].ToString() == "Staff")
+                {
+                    @Html.TextBoxFor(m => m.ClassAssigned, new { @class = "form-control", @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.ClassAssigned, (SelectList)ViewBag.ClassList, "Select Class", new { @class = "form-select" })
+                }
+            </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="col-md-6 col-sm-12">
+            <div class="mb-1">
+                @Html.Label("Photo", new { @class = "form-label fw-bold d-block" })
+
+                @if (!string.IsNullOrWhiteSpace(Model.PhotoPath))
+                {
+                    <img src="@Url.Content(Model.PhotoPath)"
+                         alt="Photo"
+                         class="img-thumbnail mb-2"
+                         style="max-height:120px;" />
+                }
+
+                <input type="file"
+                       name="PhotoUpload"
+                       id="PhotoUpload"
+                       class="form-control"
+                       accept=".jpg,.jpeg,.png" />
+
+                <span class="text-danger" id="photoError"></span>
+
+                @Html.ValidationMessage("PhotoUpload", "", new { @class = "text-danger" })
+
+
+                <div class="form-text">Only JPEG or PNG images are allowed.</div>
+            </div>
+        </div>
+
+
+
+        
+            <!-- Buttons -->
+    <div class="mt-3">
+        <button type="submit" class="btn btn-success px-4 me-2">Update</button>
+        <button type="button" class="btn btn-secondary px-4" onclick="resetForm()">Cancel</button>
+    </div>
+        </div>
+  
+}
+
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .btn-theme {
+        background-color: #2d5f5d;
+        color: white;
+        border: none;
+    }
+
+        .btn-theme:hover {
+            background-color: #234b49;
+            color: white;
+        }
+
+</style>
+
+<script>
+    // Photo validation
+    document.getElementById("PhotoUpload").addEventListener("change", function () {
+        const file = this.files[0];
+        const errorSpan = document.getElementById("photoError");
+
+        errorSpan.innerText = "";
+
+        if (file) {
+            const allowedTypes = ["image/jpeg", "image/png"];
+
+            if (!allowedTypes.includes(file.type)) {
+                errorSpan.innerText = "❌ Only JPEG and PNG images are allowed.";
+                this.value = ""; // file clear
+            }
+        }
+    });
+
+    // Reset form function
+    function resetForm() {
+        // Page reload karke original state mein le aaye
+        location.reload();
+    }
+
+    // Photo validation - replace existing script
+    document.getElementById("PhotoUpload").addEventListener("change", function () {
+        const file = this.files[0];
+        const errorSpan = document.getElementById("photoError");
+        errorSpan.innerText = "";
+
+        if (file) {
+            const allowedTypes = ["image/jpeg", "image/png"];
+            const maxSizeInBytes = 5 * 1024 * 1024; // 5 MB
+
+            if (!allowedTypes.includes(file.type)) {
+                errorSpan.innerText = "❌ Only JPEG and PNG images are allowed.";
+                this.value = "";
+                return;
+            }
+
+            if (file.name.length > 50) {
+                errorSpan.innerText = "❌ File name is too long (" + file.name.length + " characters). Maximum 50 characters allowed.";
+                this.value = "";
+                return;
+            }
+
+            if (file.size > maxSizeInBytes) {
+                const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                errorSpan.innerText = "❌ File size is " + fileSizeMB + " MB. Maximum allowed size is 5 MB. Please select a smaller photo.";
+                this.value = ""; // file clear
+                return;
+            }
+        }
+    });
+
+    // Form submit pe bhi check karo
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const fileInput = document.getElementById("PhotoUpload");
+        const errorSpan = document.getElementById("photoError");
+        const file = fileInput.files[0];
+
+        if (file && file.size > 5 * 1024 * 1024) {
+            e.preventDefault(); // form submit rokdo
+            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+            errorSpan.innerText = "❌ File size is " + fileSizeMB + " MB. Maximum allowed size is 5 MB.";
+            fileInput.value = "";
+        }
+    });
+
+
+</script>

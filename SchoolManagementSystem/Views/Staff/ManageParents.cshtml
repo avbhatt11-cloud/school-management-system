@@ -1,0 +1,152 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Parent>
+
+@{
+    ViewBag.Title = "Manage Parents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 profile mx-10">
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-person-hearts me-1"></i>
+        Manage Parents
+    </h2>
+
+    @if (TempData["ParentMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["ParentMessage"]
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button class="btn-close" data-bs-dismiss="alert"></button>1
+        </div>
+    }
+    <div>
+        <a href="@Url.Action("CreateParent", "Staff")" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add New Parent
+        </a>
+        @if (ViewBag.ShowInactive != null && (bool)ViewBag.ShowInactive)
+        {
+            <a href="@Url.Action("ManageParents", "Staff", new { showInactive = false })" class="btn btn-success">
+                Show Active Parents
+            </a>
+        }
+        else
+        {
+            <a href="@Url.Action("ManageParents", "Staff", new { showInactive = true })" class="btn btn-secondary">
+                Show Inactive Parents
+            </a>
+        }
+    </div>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>No.</th>
+                <th>Parent Name</th>
+                <th>Contact No</th>
+                <th>Email</th>
+
+                <th>Student Name</th>
+                <th>Class</th>
+                <th>Username</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int i = 1;
+                foreach (var parent in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td class="text-capitalize">@($"{parent.ParentFirstName} {parent.ParentLastName}")</td>
+                        <td>@parent.ContactNumber</td>
+                        <td>@parent.Email</td>
+
+                        <td class="text-capitalize">@($"{parent.StudentFirstName} {parent.StudentLastName}")</td>
+                        <td>@parent.ClassName</td>
+                        <td>@parent.Username</td>
+                        <td>
+                            @if (parent.IsActive)
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Inactive</span>
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("DetailsParent", "Staff", new { id = parent.ParentId })" class="btn btn-sm btn-info"> View</a>
+                            <a href="@Url.Action("EditParent", "Staff", new { id = parent.ParentId })" class="btn btn-sm btn-warning"> Edit</a>
+                            <a href="@Url.Action("DeleteParent", "Staff", new { id = parent.ParentId })" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this parent?');"> Delete</a>
+
+                            @if (parent.IsActive)
+                            {
+                                using (Html.BeginForm("DeactivateParent", "Staff", new { id = parent.ParentId }, FormMethod.Post, new { @class = "d-inline" }))
+                                {
+                                    <button type="submit" class="btn btn-sm btn-warning">Deactivate</button>
+                                }
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("ActivateParent", "Staff", new { id = parent.ParentId }, FormMethod.Post, new { @class = "d-inline" }))
+                                {
+                                    <button type="submit" class="btn btn-sm btn-success">Activate</button>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center text-muted">No parents found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .btn-theme {
+        background-color: #2d5f5d;
+        color: white;
+        border: none;
+    }
+
+        .btn-theme:hover {
+            background-color: #234b49;
+            color: white;
+        }
+</style>

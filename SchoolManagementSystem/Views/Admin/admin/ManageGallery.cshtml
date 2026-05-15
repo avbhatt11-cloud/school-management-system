@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Gallery>
+@{
+    ViewBag.Title = "Manage Gallery";
+}
+
+<h2>Manage Gallery</h2>
+
+<p>
+    @Html.ActionLink("Add New Photo", "CreateGallery", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Photo</th>
+        <th>Photo Name</th>
+        <th>Created At</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.PhotoPath)" alt="@item.PhotoName" width="100" />
+            </td>
+            <td>@item.PhotoName</td>
+            <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+            <td>
+                @Html.ActionLink("Details", "DetailsGallery", new { id = item.Id }, new { @class = "btn btn-info btn-sm" }) |
+                @Html.ActionLink("Edit", "EditGallery", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" }) |
+                @Html.ActionLink("Delete", "DeleteGallery", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    }
+</table>

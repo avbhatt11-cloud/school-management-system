@@ -1,0 +1,30 @@
+﻿@model SchoolManagementSystem.Models.Gallery
+@{
+    ViewBag.Title = "Edit Photo";
+}
+
+<h2>Edit Photo</h2>
+
+@using (Html.BeginForm("EditGallery", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("id", Model.Id)
+
+    <div class="form-group">
+        @Html.Label("Photo Name")
+        @Html.TextBox("PhotoName", Model.PhotoName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Current Photo</label><br />
+        <img src="@Url.Content(Model.PhotoPath)" alt="@Model.PhotoName" width="120" />
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Upload New Photo (optional)")
+        <input type="file" name="PhotoFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+    @Html.ActionLink("Back to List", "ManageGallery", null, new { @class = "btn btn-secondary" })
+}

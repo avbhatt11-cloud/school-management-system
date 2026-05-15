@@ -1,0 +1,686 @@
+﻿@model SchoolManagementSystem.Models.AttendanceReportViewModel
+@{
+    ViewBag.Title = "Attendance Report";
+    var months = new[] { "January","February","March","April","May","June",
+                         "July","August","September","October","November","December" };
+    int attendanceRate = Model.TotalRecords > 0
+        ? (Model.PresentCount * 100) / Model.TotalRecords : 0;
+}
+
+
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    :root {
+        --green: #2d5f5d;
+        --green-dk: #1e4240;
+        --green-lt: #e6f2f1;
+        --teal: #38b2ac;
+        --coral: #f06a50;
+        --amber: #f5a623;
+        --indigo: #5c6bc0;
+        --border: #d1e8e7;
+        --txt: #1a3332;
+        --txt-sub: #6b9290;
+        --bg: #f0f7f7;
+    }
+
+    .att-page * {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .att-page {
+        background: var(--bg);
+        min-height: 100vh;
+        padding: 28px 32px;
+    }
+
+    /* HERO */
+    .att-hero {
+        background: #2d5f5d;
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .att-hero::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.06);
+        }
+
+        .att-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: 120px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.04);
+        }
+
+    .att-hero-title {
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -.3px;
+    }
+
+    .att-hero-sub {
+        color: rgba(255,255,255,.65);
+        font-size: .83rem;
+        margin-top: 4px;
+    }
+
+    .hero-btns {
+        display: flex;
+        gap: 8px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn-hero {
+        background: rgba(255,255,255,.15);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,.25);
+        border-radius: 8px;
+        padding: 7px 14px;
+        font-size: .8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background .2s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .btn-hero:hover {
+            background: rgba(255,255,255,.28);
+            color: #fff;
+        }
+
+    /* FILTER */
+    .att-filter {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 24px 16px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(45,95,93,.06);
+    }
+
+    .filter-title {
+        font-size: .72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--green);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+        .filter-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+    .att-filter .form-label {
+        font-size: .74rem;
+        font-weight: 700;
+        color: var(--txt);
+        margin-bottom: 5px;
+    }
+
+    .att-filter .form-control,
+    .att-filter .form-select {
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: .82rem;
+        color: var(--txt);
+        transition: border .2s, box-shadow .2s;
+    }
+
+        .att-filter .form-control:focus,
+        .att-filter .form-select:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(45,95,93,.12);
+            outline: none;
+        }
+
+    .btn-search {
+        background: var(--green);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: .82rem;
+        padding: 7px 0;
+        transition: background .2s, transform .1s;
+    }
+
+        .btn-search:hover {
+            background: var(--green-dk);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+    .btn-clr {
+        border: 1.5px solid black;
+        border-radius: 8px;
+        font-size: .82rem;
+        color: black;
+        padding: 7px 0;
+    }
+
+        .btn-clr:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+    .ftags {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .ftag-lbl {
+        font-size: .72rem;
+        font-weight: 700;
+        color: var(--txt-sub);
+    }
+
+    .ftag {
+        font-size: .72rem;
+        font-weight: 700;
+        padding: 3px 12px;
+        border-radius: 20px;
+        background: var(--green-lt);
+        color: var(--green);
+        border: 1px solid var(--border);
+    }
+
+    /* STAT CARDS */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .s-card {
+        border-radius: 14px;
+        padding: 20px 22px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    }
+
+        .s-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.1);
+        }
+
+        .s-card .s-icon {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            opacity: .9;
+        }
+
+        .s-card .s-val {
+            font-size: 1.65rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .s-card .s-lbl {
+            font-size: .75rem;
+            opacity: .82;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .s-card .s-sub {
+            font-size: .7rem;
+            opacity: .65;
+            margin-top: 2px;
+        }
+
+    .sc-total {
+        background: linear-gradient(135deg, #2d5f5d, #3a8a87);
+    }
+
+    .sc-present {
+        background: linear-gradient(135deg, #1a6b5a, #27ae8a);
+    }
+
+    .sc-absent {
+        background: linear-gradient(135deg, #c0612a, #f06a50);
+    }
+
+    .sc-late {
+        background: linear-gradient(135deg, #b07a10, #f5a623);
+    }
+
+    .rate-bar-bg {
+        background: rgba(255,255,255,.2);
+        border-radius: 6px;
+        height: 5px;
+        margin-top: 8px;
+    }
+
+    .rate-bar-fill {
+        background: #fff;
+        border-radius: 6px;
+        height: 5px;
+    }
+
+    /* TABLE */
+    .att-table-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(45,95,93,.06);
+    }
+
+    .table-topbar {
+        padding: 14px 22px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .table-topbar .t-title {
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--txt);
+        }
+
+        .table-topbar .t-count {
+            font-size: .76rem;
+            font-weight: 600;
+            background: var(--green-lt);
+            color: var(--green);
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+    .tbl {
+        margin: 0;
+    }
+
+        .tbl thead th {
+            background: black;
+            color: white;
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            border: none;
+            border-bottom: 2px solid #2d5f5d;
+            padding: 12px 16px;
+            white-space: nowrap;
+        }
+
+        .tbl tbody td {
+            font-size: .83rem;
+            color: var(--txt);
+            border: none;
+            border-bottom: 1px solid #f0f7f7;
+            padding: 12px 16px;
+            vertical-align: middle;
+        }
+
+        .tbl tbody tr:hover td {
+            background: #f7fbfb;
+        }
+
+        .tbl tfoot td {
+            background: var(--green-lt);
+            font-size: .83rem;
+            font-weight: 700;
+            color: var(--green-dk);
+            border: none;
+            border-top: 2px solid var(--border);
+            padding: 12px 16px;
+        }
+
+    /* Pills */
+    .p-class {
+        background: #e8f4f4;
+        color: #1e5c5a;
+        padding: 3px 11px;
+        border-radius: 20px;
+        font-size: .72rem;
+        font-weight: 700;
+    }
+
+    .p-present {
+        background: #e6f7f0;
+        color: #1a6b4a;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: .73rem;
+        font-weight: 700;
+    }
+
+    .p-absent {
+        background: #fef0eb;
+        color: #b84a25;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: .73rem;
+        font-weight: 700;
+    }
+
+    .p-late {
+        background: #fef8e7;
+        color: #9a6500;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: .73rem;
+        font-weight: 700;
+    }
+
+    .no-data {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+        .no-data .nd-icon {
+            font-size: 3rem;
+            color: var(--border);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .no-data .nd-txt {
+            color: var(--txt-sub);
+            font-size: .9rem;
+            font-weight: 500;
+        }
+
+    @@media print {
+        .no-print {
+            display: none !important;
+        }
+
+        .att-page {
+            background: #fff;
+            padding: 0;
+        }
+
+        .tbl {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<div class="att-page">
+
+    @* HERO *@
+    <div class="att-hero no-print">
+        <div>
+            <div class="att-hero-title">
+                <i class="bi bi-clipboard2-check-fill me-2"></i>Attendance Report
+            </div>
+            <div class="att-hero-sub">
+                Class: <strong style="color:#fff">@Session["ClassAssigned"]</strong>
+                &nbsp;&middot;&nbsp; Filter by date and status
+            </div>
+        </div>
+        <div class="hero-btns">
+            <button onclick="window.print()" class="btn-hero">
+                <i class="bi bi-printer"></i> Print
+            </button>
+            <button onclick="exportCSV()" class="btn-hero">
+                <i class="bi bi-download"></i> CSV
+            </button>
+            @Html.ActionLink("← Back", "ManageStudentsAttendance", null, new { @class = "btn-hero" })
+        </div>
+    </div>
+
+    @* FILTER *@
+    <div class="att-filter no-print">
+        <div class="filter-title"><i class="bi bi-funnel-fill"></i> Filters</div>
+        @using (Html.BeginForm("AttendanceReport", "Staff", FormMethod.Get))
+        {
+            <div class="row g-2 align-items-end">
+
+
+                <div class="col-md-3">
+                    <label class="form-label">Student Name</label>
+                    <input type="text" name="StudentName" value="@Model.StudentName"
+                           class="form-control form-control-sm" placeholder="Search by name..." />
+                </div>
+
+
+                <div class="col-md-2">
+                    <label class="form-label">Month</label>
+                    <select name="Month" class="form-select form-select-sm">
+                        <option value="">All Months</option>
+                        @for (int m = 1; m <= 12; m++)
+                        {
+                            <option value="@m" @(Model.Month == m ? "selected" : "")>@months[m - 1]</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="col-md-1">
+                    <label class="form-label">Year</label>
+                    <select name="Year" class="form-select form-select-sm">
+                        <option value="">All</option>
+                        @for (int y = DateTime.Now.Year; y >= DateTime.Now.Year - 4; y--)
+                        {
+                            <option value="@y" @(Model.Year == y ? "selected" : "")>@y</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="col-md-2">
+                    <label class="form-label">Status</label>
+                    <select name="Status" class="form-select form-select-sm">
+                        <option value="">All Status</option>
+                        <option value="Present" @(Model.Status == "Present" ? "selected" : "")>Present</option>
+                        <option value="Absent" @(Model.Status == "Absent" ? "selected" : "")>Absent</option>
+                        <option value="Late" @(Model.Status == "Late" ? "selected" : "")>Late</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-sm btn-search flex-fill">
+                        <i class="bi bi-search me-1"></i>Search
+                    </button>
+                    <a href="@Url.Action("AttendanceReport","Staff")" class="btn btn-sm btn-clr flex-fill text-center">
+                        <i class="bi bi-x-circle me-1"></i>Clear
+                    </a>
+                </div>
+
+            </div>
+
+            @* ACTIVE FILTER TAGS *@
+            if (Model.Day.HasValue || Model.Month.HasValue || Model.Year.HasValue ||
+                 !string.IsNullOrEmpty(Model.Status) || !string.IsNullOrEmpty(Model.StudentName))
+            {
+                <div class="ftags">
+                    <span class="ftag-lbl">Active:</span>
+                    @if (Model.Day.HasValue)
+                    {<span class="ftag">Day: @Model.Day</span>}
+                    @if (Model.Month.HasValue)
+                    {<span class="ftag">@months[Model.Month.Value - 1]</span>}
+                    @if (Model.Year.HasValue)
+                    {<span class="ftag">@Model.Year</span>}
+                    @if (!string.IsNullOrEmpty(Model.Status))
+                    {<span class="ftag">@Model.Status</span>}
+                    @if (!string.IsNullOrEmpty(Model.StudentName))
+                    {<span class="ftag">Name: @Model.StudentName</span>}
+                </div>
+            }
+        }
+    </div>
+
+    @* STAT CARDS *@
+    <div class="stat-grid">
+        <div class="s-card sc-total">
+            <div class="s-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="s-val">@Model.TotalRecords</div>
+            <div class="s-lbl">Total Records</div>
+            <div class="s-sub">for class @Session["ClassAssigned"]</div>
+        </div>
+        <div class="s-card sc-present">
+            <div class="s-icon"><i class="bi bi-check-circle-fill"></i></div>
+            <div class="s-val">@Model.PresentCount</div>
+            <div class="s-lbl">Present</div>
+            <div class="rate-bar-bg">
+                <div class="rate-bar-fill" style="width:@(Model.TotalRecords > 0 ? (Model.PresentCount * 100 / Model.TotalRecords) : 0)%"></div>
+            </div>
+        </div>
+        <div class="s-card sc-absent">
+            <div class="s-icon"><i class="bi bi-x-circle-fill"></i></div>
+            <div class="s-val">@Model.AbsentCount</div>
+            <div class="s-lbl">Absent</div>
+            <div class="rate-bar-bg">
+                <div class="rate-bar-fill" style="width:@(Model.TotalRecords > 0 ? (Model.AbsentCount * 100 / Model.TotalRecords) : 0)%"></div>
+            </div>
+        </div>
+        <div class="s-card sc-late">
+            <div class="s-icon"><i class="bi bi-clock-fill"></i></div>
+            <div class="s-val">@Model.LateCount</div>
+            <div class="s-lbl">Late</div>
+            <div class="rate-bar-bg">
+                <div class="rate-bar-fill" style="width:@(Model.TotalRecords > 0 ? (Model.LateCount * 100 / Model.TotalRecords) : 0)%"></div>
+            </div>
+        </div>
+    </div>
+
+    @* TABLE *@
+    <div class="att-table-card">
+        <div class="table-topbar">
+            <span class="t-title"><i class="bi bi-table me-2" style="color:var(--green)"></i>Attendance Records</span>
+            <span class="t-count">@Model.TotalRecords record(s)</span>
+        </div>
+
+        @if (Model.Rows.Count == 0)
+        {
+            <div class="no-data">
+                <i class="bi bi-inbox nd-icon"></i>
+                <div class="nd-txt">No records found. Try changing the filters above.</div>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table tbl" id="attTable">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Email</th>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Marked By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int sr = 1;}
+                        @foreach (var row in Model.Rows)
+                        {
+                            <tr>
+                                <td style="color:var(--txt-sub);font-size:.75rem">@sr</td>
+                                <td style="font-size:.82rem;color:var(--txt-sub)">@row.Email</td>
+                                <td><strong>@row.StudentName</strong></td>
+                                <td><span class="p-class">@row.ClassName</span></td>
+                                <td>
+                                    @if (row.Status == "Present")
+                                    {
+                                        <span class="p-present">&#10004; Present</span>
+                                    }
+                                    else if (row.Status == "Absent")
+                                    {
+                                        <span class="p-absent">&#10008; Absent</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="p-late">&#9679; Late</span>
+                                    }
+                                </td>
+                                <td style="font-size:.82rem;color:var(--txt-sub)">
+                                    @row.AttendanceDate.ToString("dd MMM yyyy")
+                                </td>
+                                <td style="font-size:.82rem;color:var(--txt-sub)">@row.StaffName</td>
+                            </tr>
+                            sr++;
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-end">Total</td>
+                            <td>
+                                <span class="p-present me-1">@Model.PresentCount Present</span>
+                                <span class="p-absent me-1">@Model.AbsentCount Absent</span>
+                                <span class="p-late">@Model.LateCount Late</span>
+                            </td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        function exportCSV() {
+            var table = document.getElementById('attTable');
+            if (!table) { alert('No data to export.'); return; }
+            var csv = [];
+            for (var i = 0; i < table.rows.length; i++) {
+                var cols = [];
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    var txt = table.rows[i].cells[j].innerText.replace(/\n/g, ' ').trim();
+                    cols.push('"' + txt.replace(/"/g, '""') + '"');
+                }
+                csv.push(cols.join(','));
+            }
+            var blob = new Blob([csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'AttendanceReport_' + new Date().toISOString().slice(0, 10) + '.csv';
+            a.click();
+        }
+    </script>
+}

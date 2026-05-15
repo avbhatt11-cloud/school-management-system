@@ -1,0 +1,101 @@
+﻿@model SchoolManagementSystem.Models.FAQ
+@using System.Collections.Generic
+@{
+    ViewBag.Title = "Ask FAQs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var myFaqs = ViewBag.MyFAQs as List<SchoolManagementSystem.Models.FAQ>;
+}
+
+<h2 class="mb-4 Faq"><i class="bi bi-person-raised-hand"></i> Ask a Question</h2>
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Message"]
+        <button class="btn-close" data-bs-dismiss="alert"></button>1
+    </div>
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class=" row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white Faq-wrapper ">
+    <!-- ====== New Question Form ====== -->
+    @using (Html.BeginForm("AskFAQs", "Parent", FormMethod.Post, new { id = "faqForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.Name, new { @class = "form-label fw-bold" })
+            <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+            <span class="required-star">*</span>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.Question, new { @class = "form-label fw-bold" })
+            <span class="required-star">*</span>
+            @Html.TextAreaFor(m => m.Question, new
+            {
+                @class = "form-control",
+                rows = 3,
+                required = "required"
+            })
+            @Html.ValidationMessageFor(m => m.Question, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Question</button>
+        <button type="button" class="btn btn-secondary" onclick="resetFaqForm()">
+            <i class="bi bi-x-circle"></i> Cancel
+        </button>
+
+        
+    }
+
+
+
+</div>
+
+
+<style>
+    .Faq-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .Faq {
+        margin: 24px;
+        color: #2d5f5d;
+        /*        padding: 15px;  inside space */
+    }
+
+    .required-star {
+        color: red;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+</style>
+
+<script>
+    // Reset FAQ form function
+    function resetFaqForm() {
+        var form = document.getElementById("faqForm");
+
+        // Form reset
+        form.reset();
+
+        // Validation messages clear karo
+        var validationMessages = form.querySelectorAll('.text-danger');
+        validationMessages.forEach(function (msg) {
+            msg.innerHTML = "";
+        });
+
+        // Validation classes remove karo (if any)
+        form.classList.remove('was-validated');
+    }
+</script>

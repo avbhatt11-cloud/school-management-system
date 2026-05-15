@@ -1,0 +1,81 @@
+﻿@model SchoolManagementSystem.Models.FAQ
+@{
+    ViewBag.Title = "Answer FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4 text-green fw-bold profile">
+    <h2><i class="fa fa-cogs"></i> Answer FAQ</h2>
+</div>
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <div class="card shadow-sm p-3 mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Question:</h5>
+            <p class="card-text">@Model.Question</p>
+            <p><strong>Asked By:</strong> @Model.AskedBy (@Model.Name)</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Asked On:</strong> @Model.AskedOn.ToString("dd-MM-yyyy")</p>
+        </div>
+    </div>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @using (Html.BeginForm("AnswerFAQ", "Staff", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.FAQId)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.Email)
+        @Html.HiddenFor(model => model.Question)
+        @Html.HiddenFor(model => model.AskedBy)
+        @Html.HiddenFor(model => model.AskedOn)
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Answer, new { @class = "form-label fw-bold" })
+            <span class="required-star">*</span>
+            @Html.TextAreaFor(model => model.Answer, new
+            {
+                @class = "form-control",
+                rows = 5,
+                placeholder = "Type your answer here...",
+                maxlength = "1000",
+                required = "required"
+            })
+            @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            <i class="bi "></i> Submit Answer
+        </button>
+        <a href="@Url.Action("ManageFAQs", "Staff")" class="btn btn-secondary">Cancel</a>
+    }
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .badge {
+        padding: 0.5em 0.75em;
+        font-size: 0.875rem;
+    }
+
+    .required-star {
+        color: red;
+        margin-left: 3px;
+        font-weight: bold;
+    }
+</style>

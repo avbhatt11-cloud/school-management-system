@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Gallery>
+@{
+    ViewBag.Title = "Manage Gallery";
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mx-3">
+        <strong>@TempData["Success"]</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+<div class="d-flex justify-content-between align-items-center mb-4 profile mx-10">
+
+    <h2 class="text-green mt-2 mb-2">
+        <i class="bi bi-image me-2 "></i> Manage Gallery
+    </h2>
+
+    @Html.ActionLink("Add New Photo", "CreateGallery", null,
+        new { @class = "btn btn-theme me-5 "})
+
+</div>
+
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+
+    <table class="table table-bordered table-striped">
+        <tr class="table-dark">
+            <th>No.</th>
+            <th>Photo</th>
+            <th>Photo Name</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        @{ int i = 1;}
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>
+                    <img src="@Url.Content(item.PhotoPath)" alt="@item.PhotoName" width="100" />
+                </td>
+                <td>@item.PhotoName</td>
+                <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @Html.ActionLink("Details", "DetailsGallery", new { id = item.Id }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Edit", "EditGallery", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Delete", "DeleteGallery", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+            i++;
+        }
+    </table>
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px; /* outside space */
+        padding: 25px; /* inside space */
+    }
+
+    .profile {
+        margin: 10px 30px;
+        /*        padding: 15px;  inside space */
+    }
+
+    .profile1 {
+        margin: 10px 30px;
+        margin-left: 100px;
+    }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .btn-theme {
+        background-color: #2d5f5d;
+        color: white;
+        border: none;
+    }
+
+        .btn-theme:hover {
+            background-color: #234b49;
+            color: white;
+        }
+
+</style>

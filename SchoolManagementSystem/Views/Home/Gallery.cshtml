@@ -1,0 +1,181 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Gallery>
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<!-- Page Header - Teal Green -->
+<div class="bg-light">
+    <div class="gallery-header text-green py-5 mb-5 mt-0 ">
+        <div class="container-fluid custom-padding">
+            <h1 class="display-4 fw-bold">Our Gallery</h1>
+            <p class="lead mb-0">Capturing moments of learning, growth, and achievement</p>
+        </div>
+    </div>
+
+    <div class="container-fluid custom-padding mb-5">
+        @if (Model != null && Model.Any())
+        {
+            <!-- Gallery Grid -->
+            <div class="row g-4" id="galleryGrid">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 gallery-item">
+                        <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <img src="@Url.Content(item.PhotoPath)"
+                                     class="card-img-top gallery-img"
+                                     style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s;"
+                                     alt="@item.PhotoName"
+                                     onmouseover="this.style.transform='scale(1.05)'"
+                                     onmouseout="this.style.transform='scale(1)'">
+
+                                <!-- Overlay on Hover -->
+                                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center img-overlay"
+                                     style="background: rgba(0,0,0,0.65); opacity: 0; transition: opacity 0.3s;"
+                                     onmouseover="this.style.opacity='1'"
+                                     onmouseout="this.style.opacity='0'">
+                                    <button class="btn btn-light btn-lg rounded-circle"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#imageModal@(item.PhotoPath.GetHashCode())"
+                                            style="width: 60px; height: 60px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 4.5a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 .5-.5z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold mb-2">@item.PhotoName</h5>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                        </svg>
+                                        @item.CreatedAt.ToString("dd MMM yyyy")
+                                    </small>
+                                    <!-- View Button → Coral Red -->
+                                    <button class="btn btn-sm btn-view-coral"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#imageModal@(item.PhotoPath.GetHashCode())">
+                                        View
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal for Full Image -->
+                        <div class="modal fade" id="imageModal@(item.PhotoPath.GetHashCode())" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header border-0">
+                                        <h5 class="modal-title fw-bold">@item.PhotoName</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body p-0">
+                                        <img src="@Url.Content(item.PhotoPath)" class="img-fluid w-100" alt="@item.PhotoName">
+                                    </div>
+                                    <div class="modal-footer border-0 bg-light">
+                                        <small class="text-muted me-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+                                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                            </svg>
+                                            @item.CreatedAt.ToString("dd MMMM yyyy")
+                                        </small>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <!-- Empty State -->
+            <div class="text-center py-5">
+                <div class="mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="text-muted" viewBox="0 0 16 16">
+                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                        <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                    </svg>
+                </div>
+                <h3 class="fw-bold mb-3">No Photos Available</h3>
+                <p class="text-muted mb-4">The gallery is currently empty. Check back soon for new photos!</p>
+                <a href="@Url.Action("Index","Home")" class="btn btn-back-teal px-4">Back to Home</a>
+            </div>
+        }
+    </div>
+</div>
+<style>
+    /* ===== HEADER - Teal Green ===== */
+    .gallery-header {
+        background: #B2D3C2;
+        margin-top: 56px;
+    }
+
+    /* ===== GALLERY CARDS ===== */
+    .gallery-item .card {
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 12px !important;
+    }
+
+        .gallery-item .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.15) !important;
+        }
+
+    /* ===== VIEW BUTTON - Coral Red ===== */
+    .btn-view-coral {
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 5px 16px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+    }
+
+        .btn-view-coral:hover {
+            background: #e05555;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255,107,107,0.4);
+        }
+
+    /* ===== BACK TO HOME BUTTON ===== */
+    .btn-back-teal {
+        background: linear-gradient(135deg, #2d5f5d, #1e4644);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+        .btn-back-teal:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(45,95,93,0.35);
+        }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .custom-padding {
+        padding-left: 66px;
+        padding-right: 66px;
+    }
+
+    .custom-paddingg {
+        padding-left: 60px;
+        padding-right: 50px;
+    }
+
+</style>

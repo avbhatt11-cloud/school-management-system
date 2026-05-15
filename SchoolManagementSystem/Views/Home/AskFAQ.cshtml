@@ -1,0 +1,336 @@
+﻿@model SchoolManagementSystem.Models.FAQ
+@{
+    ViewBag.Title = "Ask FAQ";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- Page Header - Teal Green -->
+<div class="bg-light">
+<div class="faq-header text-green py-5 mb-5 mt-0">
+    <div class="container-fluid custom-padding">
+        <h1 class="display-4 fw-bold">Frequently Asked Questions</h1>
+        <p class="lead mb-0">Have a question? We're here to help</p>
+    </div>
+</div>
+
+<div class="container-fluid custom-padding mb-5">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row g-4">
+        <!-- Common FAQs -->
+        <div class="col-lg-7">
+            <div class="mb-4">
+                <h3 class="fw-bold mb-4">Common Questions</h3>
+                <p class="text-muted">Browse through our most frequently asked questions. If you can't find what you're looking for, submit your question using the form.</p>
+            </div>
+
+            <div class="accordion accordion-flush" id="faqAccordion">
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            What is the admission process?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            We welcome parents and students to complete the admission process through our offline mode for personalized guidance and support.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What are the school timings?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            School hours are from 8:00 am to 5:00 pm, monday through Friday. And Saturday hours are from 9:00 am to 1:00 pm.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            What is the student-teacher ratio?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            We maintain a low student-teacher ratio to ensure personalized attention. Our average class size is 20 students with one primary teacher and one teaching assistant for primary grades, and subject-specific teachers for middle and high school.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            What extracurricular activities are offered?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            We offer a wide range of extracurricular activities including sports (basketball, soccer, swimming, athletics), arts (music, dance, drama, painting), clubs (science, robotics, debate, photography), and various cultural programs throughout the year.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            How can parents track their child's progress?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Parents have access to our online management system where they can view attendance, grades, exam schedules, assignments, and teacher feedback in real-time. We also conduct regular parent-teacher meetings and provide detailed progress reports each term.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            What are the fee payment options?
+                        </button>
+                    </h2>
+                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            We offer flexible payment options including annual, semi-annual, and quarterly payment plans. Payments can be made online through our secure portal, via bank transfer, or at the school office. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border rounded mb-3 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                            What safety measures are in place?
+                        </button>
+                    </h2>
+                    <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Student safety is our top priority. We have 24/7 CCTV surveillance, trained security personnel, controlled entry/exit systems, emergency response protocols, regular safety drills, and comprehensive insurance coverage. Our staff undergoes background checks and safety training.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ask Question Form -->
+        <div class="col-lg-5">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <!-- Question mark icon → Coral Red -->
+                        <div class="icon-circle-coral d-inline-flex align-items-center justify-content-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-2">Still Have Questions?</h4>
+                        <p class="text-muted small mb-0">Submit your question and we'll get back to you soon</p>
+                    </div>
+
+                    @using (Html.BeginForm("AskFAQ", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Name, new { @class = "form-label fw-bold" })
+                            <span class="required-star">*</span>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control form-control-lg", placeholder = "Enter your name" })
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                            <span class="required-star">*</span>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-lg", placeholder = "your.email@example.com", type = "email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <div class="mb-4">
+                            @Html.LabelFor(m => m.Question, new { @class = "form-label fw-bold" })
+                            <span class="required-star">*</span>
+                            @Html.TextAreaFor(m => m.Question, new { @class = "form-control", rows = "4", placeholder = "Type your question here..." })
+                            @Html.ValidationMessageFor(m => m.Question, "", new { @class = "text-danger small" })
+                        </div>
+
+                        <!-- Submit Button → Teal Green -->
+                        <button type="submit" class="btn btn-submit-teal btn-lg w-100 py-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                            </svg>
+                            Submit Question
+                        </button>
+
+                        <div class="text-center mt-3">
+                            <a href="@Url.Action("MyQuestions","Home")" class="btn btn-danger px-4">
+                                <i class="fas fa-headset"></i>
+                                View My Questions
+                            </a>
+
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Help Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold mb-3">Can't Find What You're Looking For?</h3>
+                <p class="text-muted mb-4">
+                    Our team is always ready to assist you with any questions or concerns
+                </p>
+
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+
+                    <!-- Contact Button -->
+                    <a href="@Url.Action("Contact","Home")" class="btn static-btn btn-lg px-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                             fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2z" />
+                        </svg>
+                        Contact Us
+                    </a>
+
+                    <!-- Call Button -->
+                    <a href="tel:9982562341" class="btn static-btn btn-lg px-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                             fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661
+                            1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608
+                            17.569 17.569 0 0 0 6.608 4.168c.601.211
+                            1.286.033 1.77-.45l1.034-1.034a.678.678
+                            0 0 0-.063-1.015l-2.307-1.794a.678.678
+                            0 0 0-.58-.122l-2.19.547a1.745 1.745
+                            0 0 1-1.657-.459L5.482 8.062a1.745
+                            1.745 0 0 1-.46-1.657l.548-2.19a.678.678
+                            0 0 0-.122-.58L3.654 1.328z" />
+                        </svg>
+                        Call: 9982562341
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+</div>
+
+<style>
+    /* ===== PAGE HEADER ===== */
+    .faq-header {
+        background: #B2D3C2;
+        margin-top: 56px;
+    }
+
+    /* ===== QUESTION MARK ICON → Coral Red (no animation) ===== */
+    .icon-circle-coral {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgba(255, 107, 107, 0.12);
+        color: #ff6b6b;
+    }
+
+    /* Fix Submit Button Hover Text Color */
+    .btn-submit-teal,
+    .btn-submit-teal:hover,
+    .btn-submit-teal:focus,
+    .btn-submit-teal:active {
+        color: #ffffff !important;
+        background: linear-gradient(135deg, #2d5f5d, #1e4644) !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+
+
+
+    /* ===== OUTLINE CORAL ===== */
+    .btn-outline-coral {
+        color: #ff6b6b;
+        border: 2px solid #ff6b6b;
+        border-radius: 8px;
+        font-weight: 600;
+        background: transparent;
+    }
+
+    /* ===== REQUIRED STAR ===== */
+    .required-star {
+        color: #ff6b6b;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+
+    /* ===== STATIC BUTTON (NO HOVER / NO ANIMATION) ===== */
+    .static-btn {
+        background: transparent;
+        color: #2d5f5d;
+        border: 2px solid #2d5f5d;
+        border-radius: 8px;
+        font-weight: 600;
+        box-shadow: none;
+        transition: none;
+        cursor: default; /* Remove pointer look */
+    }
+
+        /* Remove all hover, focus, active effects */
+        .static-btn:hover,
+        .static-btn:focus,
+        .static-btn:active {
+            background: transparent !important;
+            color: #2d5f5d !important;
+            border: 2px solid #2d5f5d !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+    .btn-view-red {
+        background-color: #dc3545;
+        border: 2px solid #dc3545;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+        .btn-view-red:hover,
+        .btn-view-red:focus,
+        .btn-view-red:active {
+            background-color: #dc3545 !important;
+            border: 2px solid #dc3545 !important;
+            color: #fff !important;
+            box-shadow: none !important;
+        }
+
+    .text-green {
+        color: #2d5f5d !important;
+    }
+
+    .custom-padding {
+        padding-left: 66px;
+        padding-right: 66px;
+    }
+
+    .custom-paddingg {
+        padding-left: 60px;
+        padding-right: 50px;
+    }
+</style>

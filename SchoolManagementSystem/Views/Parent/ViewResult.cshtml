@@ -1,0 +1,148 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Result>
+@{
+    ViewBag.Title = "View Result";
+}
+
+<div class="mb-4 mt-3 text-primary fw-bold profile">
+    <h2 style="color: #2d5f5d;"><i class="bi bi-bar-chart-fill"></i> My Child's Results</h2>
+</div>
+
+<div class="row mt-4 g-4 border border-1 border-dark rounded-2 p-3 shadow-sm bg-white profile-wrapper">
+    @* ✅ SUCCESS MESSAGE DISPLAY *@
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @* ❌ ERROR MESSAGE DISPLAY *@
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> No results posted yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>Class</th>
+                        <th>Student Name</th>
+                        <th>Exam Type</th>
+                        <th>Result File</th>
+                        <th>Posted On</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 1;}
+
+                    @foreach (var result in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@result.Parent.ClassName</td>
+                            <td>@result.Parent.StudentFirstName @result.Parent.StudentLastName</td>
+                            <td>
+                                <span class="badge @(result.ExamType == "Mid-Term" ? "bg-info" : "bg-warning")">
+                                    @result.ExamType
+                                </span>
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(result.ResultFile))
+                                {
+                                    <i class="bi bi-file-earmark-pdf"></i>
+                                    <span>@result.ResultFile</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No file</span>
+                                }
+                            </td>
+                            <td>@result.CreatedAt.ToString("dd MMM yyyy, hh:mm tt")</td>
+                            <td>
+                                @* ✅ Download button with onclick event *@
+                                <a href="@Url.Action("DownloadResult", "Parent", new { id = result.Id })"
+                                   class="btn btn-success"
+                                   onclick="showDownloadMessage('@result.ResultFile', '@result.Parent.StudentFirstName @result.Parent.StudentLastName')">
+                                    <i class="bi bi-download"></i> Download
+                                </a>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<style>
+    .profile-wrapper {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .profile {
+        margin: 10px 30px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .badge {
+        padding: 0.5em 0.75em;
+        font-size: 0.875rem;
+    }
+
+    .btn-download {
+        background-color: #4FC3F7;
+        color: black;
+        border: none;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+        .btn-download:hover {
+            background-color: #29B6F6;
+            color: black;
+        }
+</style>
+
+<script>
+    // ✅ Show download success message (NO auto-dismiss)
+    function showDownloadMessage(fileName, studentName) {
+        // Wait for download to start, then show message
+        setTimeout(function () {
+            // Create success alert
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show';
+            alertDiv.setAttribute('role', 'alert');
+            alertDiv.innerHTML = '<i class="bi bi-check-circle-fill"></i> Result for ' + studentName + ' (' + fileName + ') downloaded successfully! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+
+            // Insert at top of page (after h2)
+            var container = document.querySelector('.profile');
+            container.parentNode.insertBefore(alertDiv, container.nextSibling);
+
+            // ❌ NO AUTO-DISMISS - User will close manually using X button
+        }, 500);
+    }
+</script>
