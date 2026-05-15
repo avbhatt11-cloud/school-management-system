@@ -9,8 +9,8 @@ namespace SchoolManagementSystem.Services
 {
     public class CashfreeService
     {
-        private readonly string _appId = "TEST109701429fa05bbb53892cf9c45a24107901";
-        private readonly string _secretKey = "cfsk_ma_test_954b3e89769af19f75a49acfee30396d_a2d376ac";
+        private readonly string _appId = "YOUR_API_KEY_HERE";
+        private readonly string _secretKey = "YOUR_SECRET_KEY_HERE";
         private readonly string _baseUrl = "https://sandbox.cashfree.com/pg";
         private readonly string _returnDomain;
 
